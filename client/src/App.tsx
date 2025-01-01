@@ -11,12 +11,13 @@ import Chats from "./pages/Chats";
 import Shopping from "./pages/Shopping";
 import Blogs from "./pages/Blogs";
 import Signup from "./pages/Signup";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
     <Router>
-      {/* <Sidebar /> */}
       <Navbar />
+      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
