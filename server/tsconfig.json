@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Target ES6 for modern JS features
+    "module": "CommonJS", // Node.js module system
+    "rootDir": "./src", // Root directory for TypeScript files
+    "outDir": "./dist", // Output directory for compiled JS files
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Enable ES Module compatibility
+    "skipLibCheck": true // Skip type checks of declaration files
+  },
+  "include": ["src"], // Include source files
+  "exclude": ["node_modules"] // Exclude node_modules
+}
