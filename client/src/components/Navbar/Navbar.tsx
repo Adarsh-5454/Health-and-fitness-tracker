@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const Navbar = () => {
   return (
-    <nav className="relative">
+    <nav className="">
       <Sidebar />
       <ul className="flex space-x-4 p-4 bg-gray-800 text-white">
         <li>
@@ -28,6 +28,14 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "font-bold" : "")}
           >
             Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/signup"
+            className={({ isActive }) => (isActive ? "font-bold" : "")}
+          >
+            Signup
           </NavLink>
         </li>
         <li>

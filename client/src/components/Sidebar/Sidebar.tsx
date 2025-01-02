@@ -4,9 +4,9 @@ import styles from "./Sidebar.module.css";
 const Sidebar = () => {
   return (
     <div
-      className={`${styles.sideBar} w-px h-screen  absolute overflow-hidden	hover:w-56 hover:visible`}
+      className={`${styles.sideBar} w-px  fixed overflow-hidden top-0 bottom-0 left-0	hover:w-56 hover:visible`}
     >
-      <nav className="bg-primary-dark  w-full h-full p-4 rounded-l-lg shadow-lg transition-all duration-300">
+      <nav className="bg-primary-dark  w-full h-full p-4 rounded-r-lg shadow-lg transition-all duration-300">
         <div className="mb-8">
           <h1 className="text-3xl font-semibold text-white">FitMaestro</h1>
         </div>
