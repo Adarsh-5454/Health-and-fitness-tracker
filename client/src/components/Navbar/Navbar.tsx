@@ -1,10 +1,8 @@
 import { NavLink } from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
 
 const Navbar = () => {
   return (
     <nav className="">
-      <Sidebar />
       <ul className="flex space-x-4 p-4 bg-gray-800 text-white">
         <li>
           <NavLink
