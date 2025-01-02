@@ -38,9 +38,13 @@ const NavBarShop = () => {
                   />
                </button>
 
-               {/* <button className={styles.icon}>
-              <img src="src\assets\cart.jpeg" alt="oops" className={styles.img} />
-            </button> */}
+               <button className={styles.icon}>
+                  <img
+                     src="src\assets\cart.jpeg"
+                     alt="oops"
+                     className={styles.img}
+                  />
+               </button>
             </div>
          </div>
       </>
