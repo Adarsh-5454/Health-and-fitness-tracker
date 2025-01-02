@@ -3,11 +3,11 @@ import styles from "./Home.module.css";
 const Home = () => {
   return (
     <div>
-      {/* Navigation Section */}
+      {/* Navigation Section
       <div className="flex items-center justify-between h-[70px]">
         <img
           className="ml-[60px] p-[5px]"
-          src="—Pngtree—fitness logo logo_7771764.png"
+          src="src\assests\home\—Pngtree—fitness logo logo_7771764.png"
           alt=""
           width="70"
         />
@@ -17,18 +17,18 @@ const Home = () => {
         </div>
         <div className="flex justify-end gap-[40px] mt-[-30px] mr-[60px]">
           <img src="generative.png" alt="" width="35px" />
-          <img src="user.png" alt="" width="35px" />
+          <img src="src\assests\home\profile.jpg" alt="" width="35px" />
         </div>
-      </div>
+      </div> */}
 
       {/* Banner Section */}
-      <div className="bg-[url('medium-shot-man-digital-art.jpg')] bg-fixed bg-cover h-[600px] relative">
-        <div className="font-gill-sans text-white text-[30px] ml-[710px] absolute top-[150px]">
+      <div className={styles.banner}>
+        <div className="font-gill-sans text-white text-[30px] ml-[710px] absolute top-[150px]  my-10">
           <p>
             "Empower Your Body, Transform Your Life <br />
             Your Fitness Journey Starts Here."
           </p>
-          <button className="bg-[#ddd] font-gill-sans font-bold border-none text-black px-[20px] py-[10px] rounded-[16px] mt-[30px]">
+          <button className="bg-[#ddd] font-gill-sans font-bold border-none text-gray-800 px-[15px] py-[5px] rounded-[30px] mt-[40px]">
             GET STARTED
           </button>
         </div>
@@ -38,36 +38,42 @@ const Home = () => {
       <h2 className="font-gill-sans text-white text-center mt-[50px]">
         TESTIMONIALS
       </h2>
-      <div className="flex justify-around flex-wrap my-[20px] px-[20px]">
+      <div className="flex justify-around flex-wrap my-[20px] px-[20px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
         <div className="bg-[#a294f9] rounded-[10px] shadow-md w-[240px] m-[10px] p-[20px] text-center">
           <img
-            src="test1.jpg"
+            src="src\assests\home\test1.jpg"
             alt="User   1"
             className="w-[200px] h-[200px] mb-[10px]"
           />
-          <h3 className="font-gill-sans my-[10px]">Shink Mink</h3>
+          <h3 className="font-gill-sans my-[5px] font-bold text-lg">
+            Shink Mink
+          </h3>
           <p className="font-gill-sans text-[#555]">
             "This is a fantastic service! Highly recommend to everyone."
           </p>
         </div>
         <div className="bg-[#a294f9] rounded-[10px] shadow-md w-[240px] m-[10px] p-[20px] text-center">
           <img
-            src="test2.jpg"
+            src="src\assests\home\test2.jpg"
             alt="User   2"
             className="w-[200px] h-[200px] mb-[10px]"
           />
-          <h3 className="font-gill-sans my-[10px]">Jay Cutler</h3>
+          <h3 className="font-gill-sans my-[10px] font-bold text-lg">
+            Jay Cutler
+          </h3>
           <p className="font-gill-sans text-[#555]">
             "Amazing experience! Will definitely use it again."
           </p>
         </div>
         <div className="bg-[#a294f9] rounded-[10px] shadow-md w-[240px] m-[10px] p-[20px] text-center">
           <img
-            src="test4.png"
+            src="src\assests\home\test4.png"
             alt="User   3"
             className="w-[200px] h-[200px] mb-[10px]"
           />
-          <h3 className="font-gill-sans my-[10px]">Nigga Bob</h3>
+          <h3 className="font-gill-sans my-[10px] font-bold text-lg">
+            Nigga Bob
+          </h3>
           <p className="font-gill-sans text-[#555]">
             "A game changer! I can't believe how easy it was."
           </p>
