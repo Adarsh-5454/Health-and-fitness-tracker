@@ -8,7 +8,7 @@ const CartItem = () => {
         {" "}
         <div className={styles.cartItemsCard}>
           <div className={styles.prodImage}>
-            <img src="src\assets\banner.jpg  " alt="" />
+            <img src="src\assets\shopping\banner.jpg  " alt="" />
           </div>
           <div className={styles.prodDetails}>
             <button className={styles.prodDelete}>×</button>
@@ -28,7 +28,7 @@ const CartItem = () => {
         </div>
         <div className={styles.cartItemsCard}>
           <div className={styles.prodImage}>
-            <img src="src\assets\thredmill.png " alt="" />
+            <img src="src\assets\shopping\thredmill.png " alt="" />
           </div>
           <div className={styles.prodDetails}>
             <button className={styles.prodDelete}>×</button>
