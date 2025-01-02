@@ -1,10 +1,11 @@
+import Banner from "../components/shopping/BannerShop/Banner";
+import ProductShop from "../components/shopping/ProductShop/ProductShop";
+
 const Shopping = () => {
   return (
-    <div
-      className="font-semibold
-"
-    >
-      hello world
+    <div>
+      <Banner />
+      <ProductShop />
     </div>
   );
 };
