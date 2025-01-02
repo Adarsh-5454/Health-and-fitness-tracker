@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.module.css";
 import { FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const Home = () => {
   return (
     <div>
@@ -139,7 +140,9 @@ const Home = () => {
               <span className="text-white">
                 <FaFacebookF />
               </span>
-              <i className="fa-brands fa-facebook ic"></i>
+              <span>
+                <FaXTwitter />
+              </span>
               <i className="fa-brands fa-instagram ic"></i>
               <i className="fa-brands fa-linkedin ic"></i>
             </div>
