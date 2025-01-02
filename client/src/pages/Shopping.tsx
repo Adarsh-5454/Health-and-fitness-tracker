@@ -1,5 +1,5 @@
-import Banner from "../components/shopping/BannerShop/Banner";
-import ProductShop from "../components/shopping/ProductShop/ProductShop";
+import Banner from "../components/Shopping/BannerShop/Banner";
+import ProductShop from "../components/Shopping/ProductShop/ProductShop";
 
 const Shopping = () => {
   return (
