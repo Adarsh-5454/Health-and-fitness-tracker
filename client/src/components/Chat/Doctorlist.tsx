@@ -9,7 +9,9 @@ function Doctorlist() {
         </h1>
         <div className=" flex flex-col md:flex-row md:flex-wrap justify-center gap-10 mt-10 px-5">
           {/* Specialist 1 */}
-          <div className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500">
+          <div
+            className={`${style.physician1} relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500 `}
+          >
             <h3 className=" font-serif text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
               PEDIATRICIAN
             </h3>
@@ -18,12 +20,7 @@ function Doctorlist() {
             </button>
           </div>
           {/* Specialist 2 */}
-          <div
-            className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500"
-            style={{
-              backgroundImage: "url()",
-            }}
-          >
+          <div className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500">
             <h3 className=" font-serif text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
               NEUROLOGIST
             </h3>
@@ -32,13 +29,7 @@ function Doctorlist() {
             </button>
           </div>
           {/* Specialist 3 */}
-          <div
-            className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500"
-            style={{
-              backgroundImage:
-                "url('assets/front-view-male-doctor-medical-suit-wearing-mask-due-covid-white-wall-illness-covid-pandemic-virus-disease_140725-67338.avif')",
-            }}
-          >
+          <div className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500">
             <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
               DERMATOLOGIST
             </h3>
