@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Home.module.css";
+import { FaFacebookF } from "react-icons/fa";
 const Home = () => {
   return (
     <div>
@@ -38,7 +39,7 @@ const Home = () => {
       <h2 className="font-gill-sans text-white text-center mt-[50px]">
         TESTIMONIALS
       </h2>
-      <div className="flex justify-around flex-wrap my-[20px] px-[20px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
+      <div className="flex justify-around flex-wrap my-[20px] px-[20px].">
         <div className="bg-[#a294f9] rounded-[10px] shadow-md w-[240px] m-[10px] p-[20px] text-center">
           <img
             src="src\assests\home\test1.jpg"
@@ -135,7 +136,9 @@ const Home = () => {
               derita valies
             </p>
             <div className="social-icons">
-              <i className="fa-brands fa-x-twitter ic"></i>
+              <span className="text-white">
+                <FaFacebookF />
+              </span>
               <i className="fa-brands fa-facebook ic"></i>
               <i className="fa-brands fa-instagram ic"></i>
               <i className="fa-brands fa-linkedin ic"></i>
