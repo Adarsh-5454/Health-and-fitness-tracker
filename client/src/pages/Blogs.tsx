@@ -141,41 +141,41 @@ function Blogs() {
 
 export default Blogs;
 
-const blogs=[
+// const blogs=[
 
-{
-   id:"blog1",
-   title:"string",
-   img:"src\assests\blogs\blog-1.jpeg",
-   description:  "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?,"
-
-
- }
-{
-   id:"blog2",
-   title:"string",
-   img:"src\assests\blogs\blog-2.jpeg",
-   description:   "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?,"
+// {
+//    id:"blog1",
+//    title:"string",
+//    img:"src\assests\blogs\blog-1.jpeg",
+//    description:  "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
+//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
+//                   perspiciatis consequuntur dolorum distinctio minima voluptate
+//                   quae?,"
 
 
- }
-   id:"blog3",
-   title:"string",
-   img:"src\assests\blogs\blog-3.jpeg",
-   description:  " Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?,"
+//  }
+// {
+//    id:"blog2",
+//    title:"string",
+//    img:"src\assests\blogs\blog-2.jpeg",
+//    description:   "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
+//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
+//                   perspiciatis consequuntur dolorum distinctio minima voluptate
+//                   quae?,"
 
 
- }
-]
+//  }
+//    id:"blog3",
+//    title:"string",
+//    img:"src\assests\blogs\blog-3.jpeg",
+//    description:  " Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
+//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
+//                   perspiciatis consequuntur dolorum distinctio minima voluptate
+//                   quae?,"
+
+
+//  }
+// ]
