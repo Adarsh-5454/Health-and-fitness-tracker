@@ -1,5 +1,5 @@
 import React from "react";
-
+import style from "./Chat.module.css";
 function Doctorlist() {
   return (
     <>
@@ -7,15 +7,11 @@ function Doctorlist() {
         <h1 className="font-bebas text-center text-4xl sm:text-6xl md:text-6xl pt-10  ">
           PHYSICIAN SPECIALIST
         </h1>
-        <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-10 mt-10 px-5">
+        <div
+          className={`${style.physician1} flex flex-col md:flex-row md:flex-wrap justify-center gap-10 mt-10 px-5`}
+        >
           {/* Specialist 1 */}
-          <div
-            className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500"
-            style={{
-              backgroundImage:
-                "url('assests/Chatdoctor-white-coat-using-digital-tablet-reading-medical-data-gadget-working-hospital-standin_1258-88112.avif')",
-            }}
-          >
+          <div className="relative w-full md:w-1/3 bg-cover bg-center h-80 sm:h-96 lg:h-[600px] text-center border-2 border-gray-400 opacity-90 hover:scale-105 transition-transform duration-500">
             <h3 className=" font-serif text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
               PEDIATRICIAN
             </h3>
