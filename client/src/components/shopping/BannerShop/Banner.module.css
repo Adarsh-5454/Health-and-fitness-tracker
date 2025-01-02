@@ -1,5 +1,5 @@
 .bannerSection {
-  background-image: url("/src/assets/shopping/banner.jpg");
+  background-image: url("../../../assests/shopping/banner.jpg");
   background-size: cover;
 
   display: flex;
@@ -26,7 +26,6 @@ h2 {
 
 .p {
   font-size: 1.2rem;
-
   width: 50%;
 }
 .bannerButton {
