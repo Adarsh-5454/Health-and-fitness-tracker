@@ -170,3 +170,28 @@ const Home = () => {
 };
 
 export default Home;
+
+// const testimonials = [
+//   {
+//     id: "test1",
+//     imgUrl: "client/src/assests/home/test1.jpg",
+//     name: "shink mink",
+//     rating: "9.5",
+//     description: "This is a fantastic service! Highly recommend to everyone.",
+//   },
+
+//   {
+//     id: "test2",
+//     imgUrl: "client/src/assests/home/test2.jpg",
+//     name: "jay cutler",
+//     rating: "9.5",
+//     description: "Amazing experience! Will definitely use it again.",
+//   },
+//   {
+//     id: "test3",
+//     imgUrl: "client/src/assests/home/test4.png",
+//     name: "Bob",
+//     rating: "9.5",
+//     description: "A game changer! I can't believe how easy it was.",
+//   },
+// ];
