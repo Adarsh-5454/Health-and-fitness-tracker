@@ -11,7 +11,7 @@ const CartEmpty = () => {
   return (
     <div className="EmptyCart">
       <img
-        src="src\assets\empty-cart.webp"
+        src="src\assets\shopping\empty-cart.webp"
         alt="oops"
         className={styles.EmptyCart}
       />

@@ -7,7 +7,7 @@ const NavBarShop = () => {
          <div className={styles.NavSection}>
             <div className={styles.NavLeft}>
                <img
-                  src="src\assets\loder.png.webp"
+                  src="src\assets\shopping\loder.png.webp"
                   alt="oops"
                   className={styles.logo}
                />
@@ -16,7 +16,7 @@ const NavBarShop = () => {
             <div className={styles.NavRight}>
                <button className={styles.icon}>
                   <img
-                     src="src\assets\search.jpeg"
+                     src="src\assets\shopping\search.jpeg"
                      alt="oops"
                      className={styles.img}
                   />
@@ -24,7 +24,8 @@ const NavBarShop = () => {
 
                <button className={styles.icon}>
                   <img
-                     src="src\assets\profile.jpeg"
+                     src="src\assets\shopping
+                     profile.jpeg"
                      alt="oops"
                      className={styles.img}
                   />
@@ -32,7 +33,7 @@ const NavBarShop = () => {
 
                <button className={styles.icon}>
                   <img
-                     src="src\assets\heart.jpeg"
+                     src="src\assets\shopping\heart.jpeg"
                      alt="oops"
                      className={styles.img}
                   />

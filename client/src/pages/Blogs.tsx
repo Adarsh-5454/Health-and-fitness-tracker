@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Blogs() {
   return (
@@ -23,7 +24,7 @@ function Blogs() {
               spellCheck="false"
               className="border border-gray-300 outline-none bg-gray-50 text-gray-700 px-4 py-3 h-14 rounded-full flex-1 mr-4 text-lg"
             />
-            <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer">
+            <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer ">
               <img
                 src="src\assests\blogs\search.png"
                 alt=""
@@ -59,12 +60,12 @@ function Blogs() {
                   perspiciatis consequuntur dolorum distinctio minima voluptate
                   quae?
                 </p>
-                <a
-                  href="readmore.html"
+                <NavLink
+                  to="/blogs/readmore"
                   className="text-black hover:text-red-500 transition-all duration-300"
                 >
                   Read More
-                </a>
+                </NavLink>
               </div>
             </div>
 
