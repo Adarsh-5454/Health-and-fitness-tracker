@@ -15,7 +15,7 @@ function Doctorlist() {
               "url('assets/doctor-with-his-arms-crossed-white-background_1368-5790.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             PEDIATRICIAN
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
@@ -30,7 +30,7 @@ function Doctorlist() {
               "url('assets/doctor-white-coat-using-digital-tablet-reading-medical-data-gadget-working-hospital-standin_1258-88112.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             NEUROLOGIST
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
@@ -45,7 +45,7 @@ function Doctorlist() {
               "url('assets/front-view-male-doctor-medical-suit-wearing-mask-due-covid-white-wall-illness-covid-pandemic-virus-disease_140725-67338.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             DERMATOLOGIST
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
@@ -60,7 +60,7 @@ function Doctorlist() {
               "url('assets/portrait-hansome-young-male-doctor-man_171337-5068.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             PSYCHIATRIST
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
@@ -75,7 +75,7 @@ function Doctorlist() {
               "url('assets/smiling-doctor-with-strethoscope-isolated-grey_651396-974.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             CARDIOLOGIST
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
@@ -90,7 +90,7 @@ function Doctorlist() {
               "url('assets/young-blonde-woman-with-doctor-gown-holding-folder_1368-54612.avif')",
           }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-white pt-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-impact text-dark pt-10">
             NEPHROLOGIST
           </h3>
           <button className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-3/4 sm:w-2/3 lg:w-1/2 h-12 text-lg sm:text-xl md:text-2xl flex items-center justify-center hover:bg-purple-400">
