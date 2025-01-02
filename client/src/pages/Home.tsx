@@ -1,6 +1,11 @@
 import React from "react";
 import styles from "./Home.module.css";
-import { FaFacebookF } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaWhatsapp,
+  FaYoutube,
+} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 const Home = () => {
   return (
@@ -30,14 +35,14 @@ const Home = () => {
             "Empower Your Body, Transform Your Life <br />
             Your Fitness Journey Starts Here."
           </p>
-          <button className="bg-[#ddd] font-gill-sans font-bold border-none text-gray-800 px-[15px] py-[5px] rounded-[30px] mt-[40px]">
+          <button className="bg-[#ddd] font-gill-sans font-bold border-none text-gray-800 px-[15px] py-[5px] rounded-[30px] mt-[30px] text-lg">
             GET STARTED
           </button>
         </div>
       </div>
 
       {/* Testimonials Section */}
-      <h2 className="font-gill-sans text-white text-center mt-[50px]">
+      <h2 className="font-gill-sans text-white text-center mt-[50px] font-bold">
         TESTIMONIALS
       </h2>
       <div className="flex justify-around flex-wrap my-[20px] px-[20px].">
@@ -50,7 +55,7 @@ const Home = () => {
           <h3 className="font-gill-sans my-[5px] font-bold text-lg">
             Shink Mink
           </h3>
-          <p className="font-gill-sans text-[#555]">
+          <p className="font-gill-sans  text-gray-300">
             "This is a fantastic service! Highly recommend to everyone."
           </p>
         </div>
@@ -63,7 +68,7 @@ const Home = () => {
           <h3 className="font-gill-sans my-[10px] font-bold text-lg">
             Jay Cutler
           </h3>
-          <p className="font-gill-sans text-[#555]">
+          <p className="font-gill-sans  text-gray-300">
             "Amazing experience! Will definitely use it again."
           </p>
         </div>
@@ -76,7 +81,7 @@ const Home = () => {
           <h3 className="font-gill-sans my-[10px] font-bold text-lg">
             Nigga Bob
           </h3>
-          <p className="font-gill-sans text-[#555]">
+          <p className="font-gill-sans text-gray-300">
             "A game changer! I can't believe how easy it was."
           </p>
         </div>
@@ -86,18 +91,20 @@ const Home = () => {
       <div className="bg-[#1f1f1f] p-[20px] footer">
         <div className="flex flex-wrap justify-between">
           <div className="flex-1 m-[10px] min-w-[200px]">
-            <h4 className="text-[#343a40] mb-[10px]">Fit Kayo</h4>
-            <p className="my-[10px]">
+            <h4 className="text-gray-400 font-bold mb-[10px] ">Fit Kayo</h4>
+            <p className="my-[5px] text-white">
               A108 Adam Street <br />
               New York, NY 535022
             </p>
-            <p>
+            <p className="text-white">
               Phone: +1 5589 55488 55 <br />
               Email: info@example.com
             </p>
           </div>
-          <div className="footer-col">
-            <h5 className="footer-title">Useful Links</h5>
+          <div className="footer-col text-white mr-36 mt-3">
+            <h5 className="footer-title text-gray-400 font-bold">
+              Useful Links
+            </h5>
             <div className="footer-links">
               <p>
                 <span className="green">.</span> Home
@@ -113,9 +120,11 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="footer-col">
-            <h5 className="footer-title">Our Services</h5>
-            <div className="footer-links">
+          <div className="footer-col  mr-28 mt-3">
+            <h5 className="footer-title text-gray-400 font-bold">
+              Our Services
+            </h5>
+            <div className="footer-links text-white">
               <p>
                 <span className="green">.</span> Workout
               </p>
@@ -130,21 +139,28 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="footer-col">
-            <h5 className="footer-title">Follow Us</h5>
-            <p>
-              Cras fermentum odio eu feugiat lide par naso tierra videa magna
-              derita valies
+          <div className="footer-col  mt-2">
+            <h5 className="footer-title text-gray-400 font-bold">Follow Us</h5>
+            <p className="mt-2 text-white">
+              Cras fermentum odio eu feugiat lide par naso <br /> tierra videa
+              magna derita valies
             </p>
-            <div className="social-icons">
+            <div className="social-icons flex gap-3 mt-6">
               <span className="text-white">
                 <FaFacebookF />
               </span>
-              <span>
+              <span className="text-white">
                 <FaXTwitter />
               </span>
-              <i className="fa-brands fa-instagram ic"></i>
-              <i className="fa-brands fa-linkedin ic"></i>
+              <span className="text-white">
+                <FaWhatsapp />
+              </span>
+              <span className="text-white">
+                <FaYoutube />
+              </span>
+              <span className="text-white">
+                <FaInstagram />
+              </span>
             </div>
           </div>
         </div>
