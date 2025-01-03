@@ -11,7 +11,7 @@ const NavBarShop = () => {
       <div className={styles.NavSection}>
         <div className={styles.NavLeft}>
           <img
-            src="..\..\src\assests\shopping\loder.png.webp"
+            src="..\..\src\assets\shopping\loder.png.webp"
             alt="oops"
             className={styles.logo}
           />
