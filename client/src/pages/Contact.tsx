@@ -80,7 +80,7 @@ const Contact = () => {
                   />
 
                   <p className="my-2">
-                     I'd like to receive more information about TUNE; I
+                     I'd like to receive more information about Fitmaestro; I
                      understand and agree to the
                      <a
                         href=""
