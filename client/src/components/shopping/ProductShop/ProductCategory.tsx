@@ -11,7 +11,7 @@ const ProductCategory = ({ title, products }) => {
         {products.map((prev) => {
           return (
             <>
-              <ProductCard prev={prev} key={prev.id} />;
+              <ProductCard prev={prev} key={prev.id} />{" "}
               {/* <ProductIndividualCard product={prev} /> */}
             </>
           );
