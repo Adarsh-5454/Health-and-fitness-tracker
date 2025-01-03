@@ -7,7 +7,7 @@ const SingleBlog = () => {
         <div className="max-w-[800px] mx-auto my-5 bg-white rounded-lg shadow-lg overflow-hidden">
           <img
             className="w-full h-auto rounded-t-lg"
-            src="src/assests/blogs/blog-1.jpeg"
+            src="src/assets/blogs/blog-1.jpeg"
             alt=""
           />
           <h3 className="text-3xl text-gray-800 my-5 text-center">
