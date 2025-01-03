@@ -24,7 +24,7 @@ function Blogs() {
               spellCheck="false"
               className="border border-gray-300 outline-none bg-gray-50 text-gray-700 px-4 py-3 h-14 rounded-full flex-1 mr-4 text-lg"
             />
-            <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer ">
+            <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center">
               <img src="src\assets\blogs\search.png" alt="" className="w-4" />
             </button>
           </div>
