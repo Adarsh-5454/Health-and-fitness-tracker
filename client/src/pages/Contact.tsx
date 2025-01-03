@@ -6,12 +6,12 @@ const Contact = () => {
          <div
             className={`${style.contactBannerSection} w-full  h-96 text-6xl text-white font-medium flex justify-center items-center mx-`}
          >
-            Contact us
+            <h1 className="mt-10">Contact us</h1>
          </div>
          <div
             className={`${style.contactDetailsSection}   px-36 w-full h-fit bg-purple-50`}
          >
-            <h1 className="text-3xl font-medium text-center p-5">
+            <h1 className="text-3xl font-medium text-center p-5 ">
                Let's Start a Conversation
             </h1>
 
@@ -29,9 +29,9 @@ const Contact = () => {
                      to 6 PM)
                   </p>
 
-                  <p className="my-3  text-base text-slate-700">
+                  <p className="my-3  text-base text-slate-700 p-5">
                      If you are a gym owner or fitness expert looking to
-                     purchase gym equipment, connect <br /> with us at: Email:
+                     purchase gym equipment, connect with us at: Email:
                      <a
                         href=""
                         className="text-primary-dark no-underline hover:underline"
@@ -39,7 +39,7 @@ const Contact = () => {
                         shopping@fitmaestro.com
                      </a>
                   </p>
-                  <ul className="  text-base text-slate-700">
+                  <ul className="  text-base text-slate-700 p-5">
                      <li>Fitmaestro</li>
                      <li>Trivandrum,</li>
                      <li>Kerala,</li>
