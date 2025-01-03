@@ -28,32 +28,26 @@ const testimonials: Testimonial[] = [
   {
     id: "test3",
     imgUrl: test3,
-    name: "Nigga Bob",
+    name: "Bob",
     description: "A game changer! I can't believe how easy it was.",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <div>
-      <h2 className="font-gill-sans text-white text-center mt-[50px] font-bold">
+    <div className="container mx-auto py-8">
+      <h2 className="text-secondary-dark font-bold text-center mb-8">
         TESTIMONIALS
       </h2>
-      <div className="flex justify-around flex-wrap my-[20px] px-[20px]">
+      <div className="flex justify-around">
         {testimonials.map(({ id, imgUrl, name, description }) => (
           <div
             key={id}
-            className="bg-[#a294f9] rounded-[10px] shadow-md w-[240px] m-[10px] p-[20px] text-center"
+            className="bg-tertiary-light w-80 py-8 px-6 rounded-lg flex flex-col gap-6 items-center text-center"
           >
-            <img
-              src={imgUrl}
-              alt={name}
-              className="w-[200px] h-[200px] mb-[10px] rounded-full"
-            />
-            <h3 className="font-gill-sans my-[5px] font-bold text-lg">
-              {name}
-            </h3>
-            <p className="font-gill-sans text-gray-300">{description}</p>
+            <img src={imgUrl} alt={name} className="w-48 h-48 rounded-lg" />
+            <h3 className="font-bold text-2xl text-secondary-light">{name}</h3>
+            <p className="text-lg text-secondary-light">{description}</p>
           </div>
         ))}
       </div>
