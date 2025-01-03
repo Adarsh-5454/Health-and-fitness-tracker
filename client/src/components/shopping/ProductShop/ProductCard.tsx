@@ -1,8 +1,7 @@
 import React from "react";
-
 import { IoIosStar } from "react-icons/io";
 import styles from "./ProductShop.module.css";
-   
+
 const ProductCard = ({ prev }) => {
   return (
     <>
