@@ -20,8 +20,9 @@
 }
 .logoName {
   display: contents;
-  font-size: 20px;
-  color: rgb(229, 194, 246);
+  font-weight: bolder;
+  font-size: 24px;
+  color: rgb(135, 28, 188);
   height: 40px;
 }
 .logo {
@@ -42,7 +43,7 @@
   border-radius: 50%;
   border: none;
   font-size: 1.5rem;
-  color: aliceblue;
+  color: rgb(7, 7, 7);
 }
 .img {
   background-size: cover;
