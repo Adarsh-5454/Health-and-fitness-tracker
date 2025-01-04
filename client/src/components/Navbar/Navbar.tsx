@@ -5,15 +5,17 @@ import { useLocation } from "react-router-dom";
 const Navbar = () => {
   const location = useLocation();
 
-  // Check if the current path is the home page
   const isHomePage = location.pathname === "/";
+  const isShoppingPage = location.pathname.startsWith("/shopping");
+
+  const navbarClasses = `
+    fixed py-4 top-0 left-0 right-0 z-10 flex justify-between px-24 
+    ${isHomePage ? "bg-transparent" : "bg-primary-dark"} 
+    ${isShoppingPage ? "hidden" : ""}
+  `;
 
   return (
-    <div
-      className={`fixed py-4 top-0 left-0 right-0 z-10 flex justify-between px-24 ${
-        isHomePage ? "bg-transparent" : "bg-primary-dark"
-      }`}
-    >
+    <div className={navbarClasses.trim()}>
       <div className="flex items-center gap-6">
         <div className="w-8 h-8 bg-secondary-light rounded-full"></div>
         <h3 className="font-bold text-xl text-primary-light">FIT MAESTRO</h3>
