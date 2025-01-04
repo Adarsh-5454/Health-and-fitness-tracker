@@ -1,6 +1,8 @@
 .bannerSection {
   background-image: url("../../../assets/shopping/banner.jpg");
-  background-size: cover;
+}
+
+/* background-size: cover;
 
   display: flex;
   justify-content: center;
@@ -41,4 +43,4 @@ h2 {
 
 .bannerButton:hover {
   background-color: #7f29bc;
-}
+} */
