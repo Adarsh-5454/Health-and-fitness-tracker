@@ -165,9 +165,11 @@ const Profile = () => {
 
          <div className="flex  gap-4 mt-8 px-32">
             <ProfileNav />
-            <EditProfile />
-            <Security />
-            <Role />
+            <div className="flex flex-col gap-4">
+               <EditProfile />
+               <Security />
+               <Role />
+            </div>
          </div>
       </>
    );
