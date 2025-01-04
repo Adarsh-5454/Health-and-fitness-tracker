@@ -1,3 +1,4 @@
+import EditProfile from "../components/Profile/EditProfile";
 import ProfileNav from "../components/Profile/ProfileNav";
 
 const Profile = () => {
@@ -160,8 +161,9 @@ const Profile = () => {
             </div>
          </div> */}
 
-         <div>
+         <div className="flex  gap-4 mt-8 px-32">
             <ProfileNav />
+            <EditProfile />
          </div>
       </>
    );
