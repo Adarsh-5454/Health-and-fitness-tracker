@@ -1,12 +1,12 @@
-import EditProfile from "../components/Profile/EditProfile";
+import EditProfile from "../components/Profile/EditProfile/EditProfile";
 import ProfileNav from "../components/Profile/ProfileNav";
 import Role from "../components/Profile/Role";
 import Security from "../components/Profile/Security";
 
 const Profile = () => {
-   return (
-      <>
-         {/* <div className="h-screen flex">
+  return (
+    <>
+      {/* <div className="h-screen flex">
             <div className="flex w-full">
            
                <div className="flex flex-col items-center bg-light shadow-md bg-purple-50  text-white w-80 h-screen p-5">
@@ -163,16 +163,16 @@ const Profile = () => {
             </div>
          </div> */}
 
-         <div className="flex  gap-4 mt-8 px-32">
-            <ProfileNav />
-            <div className="flex flex-col gap-4">
-               <EditProfile />
-               <Security />
-               <Role />
-            </div>
-         </div>
-      </>
-   );
+      <div className="flex  gap-4 mt-8 px-32">
+        <ProfileNav />
+        <div className="flex flex-col gap-4">
+          <EditProfile />
+          <Security />
+          <Role />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Profile;
