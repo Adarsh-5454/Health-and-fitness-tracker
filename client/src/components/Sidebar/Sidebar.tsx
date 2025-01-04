@@ -10,45 +10,69 @@ const Sidebar = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-semibold text-white">FitMaestro</h1>
         </div>
-        <ul>
-          <li className="nav-item">
+        <ul className="flex flex-col gap-4 text-white">
+          <li>
             <NavLink
-              to="/home"
-              className="flex items-center p-4 text-lg text-white transition-colors duration-300 rounded-lg hover:bg-white hover:bg-opacity-10"
+              to="/"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
               Home
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              Blogs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/signup"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              Signup
+            </NavLink>
+          </li>
+          <li>
             <NavLink
               to="/profile"
-              className="flex items-center p-4 text-lg text-white transition-colors duration-300 rounded-lg hover:bg-white hover:bg-opacity-10"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
               Profile
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li>
             <NavLink
-              to="/schedule"
-              className="flex items-center p-4 text-lg text-white transition-colors duration-300 rounded-lg hover:bg-white hover:bg-opacity-10"
+              to="/shopping"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
-              Schedule
+              Shopping
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li>
             <NavLink
-              to="/activities"
-              className="flex items-center p-4 text-lg text-white transition-colors duration-300 rounded-lg hover:bg-white hover:bg-opacity-10"
+              to="/chats"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
-              Activities
+              Chats
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li>
             <NavLink
-              to="/settings"
-              className="flex items-center p-4 text-lg text-white transition-colors duration-300 rounded-lg hover:bg-white hover:bg-opacity-10"
+              to="/contact"
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
             >
-              Settings
+              Contact
             </NavLink>
           </li>
         </ul>

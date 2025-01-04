@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-// import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar";
 import Login from "./pages/AuthPages/Login";
 import Profile from "./pages/Profile";
 import Chats from "./pages/Chats";
@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
