@@ -1,22 +1,24 @@
+import { RiChatAiFill } from "react-icons/ri";
+import { FaCircleUser } from "react-icons/fa6";
 const Navbar = () => {
-  return (
-    <div className="flex items-center justify-between h-[70px] bg-transparent">
-      <img
-        className="ml-[60px] p-[5px]"
-        src="src\assests\home\—Pngtree—fitness logo logo_7771764.png"
-        alt=""
-        width="70"
-      />
-      <div className="ml-[120px] mt-[-60px] font-gill-sans">
-        <span className="text-[#c7a9e8] text-[20px] font-bold">Flex</span>
-        <span className="text-[#a294f9] text-[18px] font-bold">Fit</span>
+   return (
+      <div className="fixed w-full py-2 bg-transparent top-0 left-0 right-0 z-1 flex justify-between px-16">
+         <div className="flex items-center gap-4">
+            <button className="w-8 h-8 bg-secondary-dark rounded-full"></button>
+            <h3 className="font-bold text-xl text-purple-700">FIT MAESTRO</h3>
+         </div>
+
+         <div className="flex items-center gap-4">
+            <button className="w-5 h-5 text-3xl text-black rounded-full">
+               <RiChatAiFill />
+            </button>
+
+            <button className="w-5 h-5 text-3xl text-black rounded-full">
+               <FaCircleUser />
+            </button>
+         </div>
       </div>
-      <div className="flex justify-end gap-[40px] mt-[-30px] mr-[60px]">
-        <img src="generative.png" alt="" width="35px" />
-        <img src="src\assests\home\profile.jpg" alt="" width="35px" />
-      </div>
-    </div>
-  );
+   );
 };
 
 export default Navbar;
