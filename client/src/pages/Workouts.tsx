@@ -1,6 +1,8 @@
 import React from "react";
 import work1 from "../assets/workouts/pushup.gif";
-import work2 from "../assets/workouts/lunges.gif";
+import work2 from "../assets/workouts/incline push.gif";
+import work3 from "../assets/workouts/dimond.gif";
+import work4 from "../assets/workouts/wide push.gif";
 // Define the types for the data
 type Exercise = {
   exercise_id: string;
@@ -29,7 +31,7 @@ const workoutData: Workout[] = [
       {
         img: work1,
         exercise_id: "e001",
-        name: "Push-ups",
+        name: "Pushup",
         sets: 3,
         reps: [15, 12, 10],
         weight: "Bodyweight",
@@ -38,11 +40,29 @@ const workoutData: Workout[] = [
       {
         img: work2,
         exercise_id: "e002",
-        name: "lunges",
+        name: "Incline pushup",
         sets: 4,
         reps: [12, 10, 8, 6],
-        weight: [60, 70, 80, 90],
-        unit: "kg",
+        weight: "bodyweight",
+        unit: null,
+      },
+      {
+        img: work3,
+        exercise_id: "e002",
+        name: "Diamond pushup",
+        sets: 4,
+        reps: [12, 10, 8, 6],
+        weight: "bodyweight",
+        unit: null,
+      },
+      {
+        img: work4,
+        exercise_id: "e002",
+        name: "wide-arm pushup",
+        sets: 4,
+        reps: [12, 10, 8, 6],
+        weight: "bodyweight",
+        unit: null,
       },
     ],
   },
