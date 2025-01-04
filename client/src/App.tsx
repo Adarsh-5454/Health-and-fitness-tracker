@@ -12,6 +12,9 @@ import Shopping from "./pages/Shopping";
 import Blogs from "./pages/Blogs";
 import Signup from "./pages/AuthPages/Signup";
 import SingleBlog from "./pages/SingleBlog";
+import CartElement from "./pages/CartElement";
+import Workouts from "./pages/Workouts";
+import Diets from "./pages/Diets";
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/chats" element={<Chats />} />
         <Route path="/shopping" element={<Shopping />} />
+        <Route path="/cart" element={<CartElement />} />
+        <Route path="/workouts" element={<Workouts />} />
+        <Route path="/diets" element={<Diets />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<SingleBlog />} />
         <Route path="*" element={<NotFound />} />

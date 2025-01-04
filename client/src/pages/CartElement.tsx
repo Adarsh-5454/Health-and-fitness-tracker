@@ -1,7 +1,6 @@
-import React from "react";
+import CartItem from "../components/Shopping/Cart/CartItem";
+import CartTotal from "../components/Shopping/Cart/CartTotal";
 import styles from "./CartSection.module.css";
-import CartItem from "../Cart/CartItem";
-import CartTotal from "../Cart/CartTotal";
 
 const CartElement = () => {
   return (
