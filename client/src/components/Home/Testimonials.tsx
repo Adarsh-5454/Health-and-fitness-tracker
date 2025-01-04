@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
 const Testimonials = () => {
   return (
     <div className="container mx-auto py-8">
-      <h2 className="text-secondary-dark font-bold text-center mb-8">
+      <h2 className="text-secondary-dark font-bold text-center mb-8 text-3xl">
         TESTIMONIALS
       </h2>
       <div className="flex justify-around">
