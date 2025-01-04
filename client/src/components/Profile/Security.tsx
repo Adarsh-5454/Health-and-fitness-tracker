@@ -9,7 +9,7 @@ const Security = () => {
     <>
       <div className="flex flex-col  w-full px-36">
         <div className="text-center text-3xl font-serif mb-12 ">
-          <h1>CHANGE PASSWORD</h1>
+          <h2>CHANGE PASSWORD</h2>
         </div>
         <LabelInput
           placeholder={"Enter Current Password"}

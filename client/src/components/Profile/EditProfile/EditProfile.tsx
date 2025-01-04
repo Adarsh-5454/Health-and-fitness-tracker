@@ -7,7 +7,8 @@ import SaveCancel from "../SaveCancel";
 const EditProfile = () => {
   return (
     <>
-      <div className="flex flex-col  w-full px-36 ">
+      <div className="flex flex-col items-center  w-full px-36 ">
+        <h2>EDIT PROFILE</h2>
         <div className="flex gap-2 w-full">
           <LabelInput
             placeholder={"User Name"}
