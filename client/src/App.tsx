@@ -31,7 +31,7 @@ function App() {
         <Route path="/chats" element={<Chats />} />
         <Route path="/singlechat" element={<Chatpage />} />
         <Route path="/shopping" element={<Shopping />} />
-        <Route path="/cart" element={<CartElement />} />
+        <Route path="/shopping/cart" element={<CartElement />} />
         <Route path="/workouts" element={<Workouts />} />
         <Route path="/diets" element={<Diets />} />
         <Route path="/blogs" element={<Blogs />} />

@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname === "/";
-  const isShoppingPage = location.pathname === "/shopping";
+  const isShoppingPage = location.pathname.startsWith("/shopping");
 
   const navbarClasses = `
     fixed py-4 top-0 left-0 right-0 z-10 flex justify-between px-24 
