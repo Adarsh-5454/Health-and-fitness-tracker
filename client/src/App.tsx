@@ -15,6 +15,7 @@ import SingleBlog from "./pages/SingleBlog";
 import CartElement from "./pages/CartElement";
 import Workouts from "./pages/Workouts";
 import Diets from "./pages/Diets";
+import Chatpage from "./components/Chat/Chatpage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/chats" element={<Chats />} />
+        <Route path="/singlechat" element={<Chatpage />} />
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/cart" element={<CartElement />} />
         <Route path="/workouts" element={<Workouts />} />
