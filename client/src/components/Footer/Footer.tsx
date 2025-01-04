@@ -6,7 +6,7 @@ import FooterSocialMedia from "./FooterSocialMedia";
 const Footer = () => {
   return (
     <div className="bg-primary-dark text-secondary-light">
-      <div className="container mx-auto grid grid-cols-4 gap-10 p-4">
+      <div className="px-24 grid grid-cols-4 gap-10 p-4">
         <FooterContact />
         <FooterLinks />
         <FooterServices />
