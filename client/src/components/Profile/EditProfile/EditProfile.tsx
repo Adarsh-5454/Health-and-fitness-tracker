@@ -2,6 +2,7 @@ import React from "react";
 import Input from "../../Inputbox/Input";
 import LabelInput from "./LabelInput";
 import Button from "../../Button/Button";
+import SaveCancel from "../SaveCancel";
 
 const EditProfile = () => {
   return (
@@ -36,10 +37,7 @@ const EditProfile = () => {
         </div>
         <LabelInput placeholder={"Country"} type={"text"} label={"Country"} />
         <LabelInput placeholder={"Pincode"} type={"number"} label={"Pincode"} />
-        <div className="flex justify-between w-6/12 ">
-          <Button label={"Save"} />
-          <Button label={"Cancel"} />
-        </div>
+        <SaveCancel />
       </div>
     </>
   );
