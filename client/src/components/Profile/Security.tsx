@@ -7,7 +7,7 @@ import SaveCancel from "./SaveCancel";
 const Security = () => {
    return (
       <>
-         <div className="flex flex-col  mt-5 mt-5  w-full px-36">
+         <div className="flex flex-col mt-8  mt-5 mt-5  w-full px-36">
             <div className="text-center text-3xl font-serif mb-12 ">
                <h2>CHANGE PASSWORD</h2>
             </div>
