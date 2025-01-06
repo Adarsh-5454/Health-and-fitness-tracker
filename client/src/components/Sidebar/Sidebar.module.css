@@ -1,3 +1,17 @@
 .sideBar {
   transition: width 0.3s ease, visibility 0.3s ease;
 }
+.sideIcon{
+  height: 20px;
+  width: 20px;
+}
+.sideText {
+  display: none;
+}
+
+.nav:hover .sideText {
+  display: block;
+}
+.nav:hover .sideHover {
+  justify-content: start;
+}
