@@ -6,8 +6,10 @@ import SaveCancel from "./SaveCancel";
 const Role = () => {
    return (
       <>
-         <div className="role items-center  mt-5 px-36 w-full h-screen ">
-            <h2>ROLE</h2>
+         <div className="role items-center mt-8   mt-5 px-36 w-full h-screen ">
+            <div className="text-center text-3xl font-serif mb-12 ">
+               <h2>ROLE</h2>
+            </div>
             <div className="flex flex-col gap-2 w-full">
                <label> Role</label>
                <select className="row-start-1 col-start-1 bg-slate-50  p-2 rounded-md  ...">

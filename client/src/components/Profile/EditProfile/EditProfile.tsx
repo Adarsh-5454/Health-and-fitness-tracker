@@ -8,7 +8,9 @@ const EditProfile = () => {
    return (
       <>
          <div className="flex flex-col items-center  mt-8  w-full px-36 ">
-            <h2>EDIT PROFILE</h2>
+            <h2 className="text-center text-3xl font-serif mb-12 ">
+               EDIT PROFILE
+            </h2>
             <div className="flex gap-2 w-full">
                <LabelInput
                   placeholder={"User Name"}
