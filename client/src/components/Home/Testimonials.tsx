@@ -35,15 +35,15 @@ const testimonials: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <div className="container mx-auto py-8">
-      <h2 className="text-secondary-dark font-bold text-center mb-8 text-3xl">
+    <div className="container mx-auto py-8 md:py-12 lg:py-16">
+      <h2 className="text-secondary-dark font-bold text-center mb-8 text-3xl md:text-4xl lg:text-5xl">
         TESTIMONIALS
       </h2>
-      <div className="flex justify-around">
+      <div className="flex flex-wrap justify-around md:justify-center lg:justify-around gap-4">
         {testimonials.map(({ id, imgUrl, name, description }) => (
           <div
             key={id}
-            className="bg-tertiary-light w-80 py-8 px-6 rounded-lg flex flex-col gap-6 items-center text-center"
+            className="bg-tertiary-light w-full md:w-1/2 lg:w-1/3 xl:w-1/4 py-8 px-6 rounded-lg flex flex-col gap-6 items-center text-center mb-8 md:mb-12 lg:mb-16"
           >
             <img src={imgUrl} alt={name} className="w-48 h-48 rounded-lg" />
             <h3 className="font-bold text-2xl text-secondary-light">{name}</h3>
