@@ -5,7 +5,7 @@ function Doctorlist() {
     <>
       <div className="bg-white">
         <h3 className="font-bebas font-medium text-2xl sm:text-4xl md:text-5xl text-center pt-16">
-          PHYSICIAN SPECIALIST       
+          PHYSICIAN SPECIALIST
         </h3>
         <div className=" mt-5 grid w-full gap-6 lg:grid-cols-2  px-4 py-10">
           {/* Specialist 1 */}

@@ -75,9 +75,9 @@ function Chatmain() {
         </div>
       </div>
 
-      <Chatlayout />
+      {/* <Chatlayout />
       <Chatpage />
-      <Doctorlist />
+      <Doctorlist /> */}
     </>
   );
 }
