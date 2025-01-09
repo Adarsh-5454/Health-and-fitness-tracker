@@ -4,12 +4,9 @@ import Input from "../../components/Inputbox/Input";
 const Signup = () => {
    return (
       <div className="flex justify-center items-center min-h-screen bg-gray-50">
-         {/* Responsive Container */}
          <div className="w-full max-w-sm sm:max-w-sm md:max-w-sm lg:max-w-sm  px-6 py-8 bg-light shadow-md bg-purple-50 rounded-lg text-center">
-            {/* Heading */}
             <h3 className="text-2xl font-medium mb-6">Create a new account</h3>
 
-            {/* Input Fields */}
             <div className="space-y-4">
                <Input placeholder={"User  Name"} type={"text"} />
                <Input placeholder={"Email or phone number"} type={"text"} />
@@ -17,7 +14,6 @@ const Signup = () => {
                <Input placeholder={"Confirm password"} type={"password"} />
             </div>
 
-            {/* Terms and Conditions */}
             <p className="text-xs text-left leading-5 my-4">
                By clicking Sign Up, you agree to our
                <a href="" className="text-blue-700 hover:underline mx-1 ">
@@ -31,10 +27,8 @@ const Signup = () => {
                time.
             </p>
 
-            {/* Sign Up Button */}
             <Button label={"Sign Up"} />
 
-            {/* Link to Login */}
             <div className="text-center mt-4">
                <a
                   href="Login.html"
