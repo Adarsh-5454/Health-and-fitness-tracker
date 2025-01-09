@@ -4,22 +4,22 @@ import Input from "../components/Inputbox/Input";
 import style from "../pages/Contact.module.css";
 const Contact = () => {
   return (
-    <div>
+    <div className="w-full">
       <div
-        className={`${style.contactBannerSection} w-full  h-96 text-6xl text-white font-medium flex justify-center items-center mx-`}
+        className={`${style.contactBannerSection} w-full  h-96 text-6xl text-white font-medium flex justify-center items-center `}
       >
         <h1 className="mt-10">Contact us</h1>
       </div>
       <div
-        className={`${style.contactDetailsSection}   px-36 w-full h-fit bg-purple-50`}
+        className={`${style.contactDetailsSection}   w-full px-4 md:px-36  bg-purple-50`}
       >
-        <h1 className="text-3xl font-medium text-center p-5 ">
+        <h1 className="text-3xl font-medium text-center p-5  ">
           Let's Start a Conversation
         </h1>
 
-        <div className="grid grid-cols-2 gap-4 text-cenetr">
-          <div className={`${style.contactDetails}`}>
-            <h3 className="text-xl font-medium text-center p-5">
+        <div className=" grid grid-cols-1 md:grid-cols-2  gap-4 ">
+          <div className={`${style.contactDetails} `}>
+            <h3 className="text-lg md:text-xl font-medium text-center p-5">
               Ask how we can help you:
             </h3>
             <p className="my-2  font-medium">
