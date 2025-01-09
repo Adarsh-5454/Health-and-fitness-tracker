@@ -7,8 +7,8 @@ import SaveCancel from "./SaveCancel";
 const Security = () => {
    return (
       <>
-         <div className="flex flex-col items-center  pt-8 w-full px-36">
-            <h2 className="text-center text-3xl font-serif mb-12 ">
+         <div className="flex flex-col items-center pt-6 sm:pt-8  w-full px-4  sm:px-36">
+            <h2 className="text-center text-xl sm:text-3xl font-serif mb-3 sm:mb-12 ">
                CHANGE PASSWORD
             </h2>
 
@@ -17,7 +17,7 @@ const Security = () => {
                type={"text"}
                label={"Current Password"}
             />
-            <div className="flex gap-2 w-full">
+            <div className="flex flex-col  sm:flex sm:flex-row sm:gap-2 w-full">
                <LabelInput
                   placeholder={"Enter New Password "}
                   type={"text"}
