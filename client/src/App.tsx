@@ -17,6 +17,8 @@ import Workouts from "./pages/Workouts";
 import Diets from "./pages/Diets";
 import Chatpage from "./components/Chat/Chatpage";
 import { useState } from "react";
+import Chatlayout from "./components/Chat/Chatlayout";
+import Doctorlist from "./components/Chat/Doctorlist";
 
 function App() {
   const [menu, setMenu] = useState(false);
@@ -31,7 +33,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/chats" element={<Chats />} />
-        <Route path="/singlechat" element={<Chatpage />} />
+        <Route path="/chats/message" element={<Chatlayout />} />
+        <Route path="/chats/individualmessage" element={<Chatpage />} />
+        <Route path="/chats/appoinment" element={<Doctorlist />} />
         <Route path="/shopping" element={<Shopping />} />
         <Route path="/shopping/cart" element={<CartElement />} />
         <Route path="/workouts" element={<Workouts />} />
