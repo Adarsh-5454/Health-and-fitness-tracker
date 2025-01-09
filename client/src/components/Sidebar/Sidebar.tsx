@@ -10,7 +10,7 @@ import { RiContactsBook3Fill } from "react-icons/ri";
 const Sidebar = () => {
   return (
     <div
-      className={`${styles.sideBar} w-24 fixed overflow-hidden top-16 z-4 bottom-0 left-0	hover:w-40 hover:visible`}
+      className={`${styles.sideBar} w-24 fixed overflow-hidden top-16 z-4 bottom-0 left-0	hover:w-40 hover:visible `}
     >
       <nav
         className={`${styles.nav} bg-primary-dark  w-full h-full p-4 rounded-r-lg shadow-lg transition-all duration-300`}

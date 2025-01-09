@@ -16,12 +16,14 @@ import CartElement from "./pages/CartElement";
 import Workouts from "./pages/Workouts";
 import Diets from "./pages/Diets";
 import Chatpage from "./components/Chat/Chatpage";
+import { useState } from "react";
 
 function App() {
+  const [menu, setMenu] = useState(false);
   return (
     <Router>
-      <Navbar />
-      <Sidebar />
+      <Navbar setMenu={setMenu} menu={menu} />
+      {menu && <Sidebar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
