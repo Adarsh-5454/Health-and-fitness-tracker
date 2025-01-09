@@ -25,12 +25,12 @@ const Contact = () => {
             <p className="my-2  font-medium">
               For general inquiries, feel free to contact us at:
             </p>
-            <p className="my-3 p-5   text-base text-slate-700">
+            <p className="md:my-3 p-5   text-base text-slate-700">
               Email: hello@fitmaestro.com <br /> Phone: +91-9876543210,
               1800-321-0321, 1800-3036-6303 <br /> (Available from 9 AM to 6 PM)
             </p>
 
-            <p className="my-3  text-base text-slate-700 p-5">
+            <p className="md:my-3  text-base text-slate-700 p-5">
               If you are a gym owner or fitness expert looking to purchase gym
               equipment, connect with us at: Email:
               <a
@@ -70,7 +70,7 @@ const Contact = () => {
               </a>
               .
             </p>
-            <p className="my-2">
+            <p className="my-3">
               This site is protected by reCAPTCHA and the Google
               <a
                 href=""
