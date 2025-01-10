@@ -13,14 +13,13 @@ const CartItem = () => {
                />
             </div>
 
-            <div className="flex-1 relative">
-               <button className="absolute right-0 top-0 text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
-                  ×
-               </button>
-
-               <span className="text-sm sm:text-xl font-medium">
-                  Adjustable Weight Bench
-               </span>
+            <div className="flex-1 ">
+               <div className="flex justify-between items-start text-sm sm:text-xl font-medium">
+                  <span className="w-11/12">Adjustable Weight Bench</span>
+                  <button className="  w-1/12  text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
+                     ×
+                  </button>
+               </div>
 
                <div className="mt-1 sm:mt-4 flex items-center space-x-2">
                   <span className="text-xs sm:text-sm text-gray-500">QTY:</span>
@@ -53,13 +52,14 @@ const CartItem = () => {
             </div>
 
             <div className="flex-1 relative">
-               <button className="absolute right-0 top-0 text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
-                  ×
-               </button>
-
-               <span className="text-sm sm:text-xl font-medium">
-                  Multi-Function Home Gym Machine
-               </span>
+               <div className="flex justify-between items-start text-sm sm:text-xl font-medium">
+                  <span className="w-11/12">
+                     Multi-Function Home Gym Machine
+                  </span>
+                  <button className="w-1/12  text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
+                     ×
+                  </button>
+               </div>
 
                <div className="mt-1 sm:mt-4 flex items-center space-x-2">
                   <span className="text-xs sm:text-sm text-gray-500">QTY:</span>
@@ -91,13 +91,12 @@ const CartItem = () => {
             </div>
 
             <div className="flex-1 relative">
-               <button className="absolute right-0 top-0 text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
-                  ×
-               </button>
-
-               <span className="text-sm sm:text-xl font-medium">
-                  Men's Workout T-Shirt
-               </span>
+               <div className="flex justify-between items-start text-sm sm:text-xl font-medium">
+                  <span className="w-11/2">Men's Workout T-Shirt</span>
+                  <button className="w-1/12  text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
+                     ×
+                  </button>
+               </div>
 
                <div className="mt-1 sm:mt-4 flex items-center space-x-2">
                   <span className="text-xs sm:text-sm text-gray-500">QTY:</span>
@@ -130,12 +129,11 @@ const CartItem = () => {
             </div>
 
             <div className="flex-1 relative">
-               <button className="absolute right-0 top-0 text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
-                  ×
-               </button>
-
-               <span className="text-sm sm:text-xl font-medium">
-                  Women's High-Waist Leggings
+               <span className="flex justify-between items-start text-sm sm:text-xl font-medium">
+                  <span className="w-11/2"> Women's High-Waist Leggings</span>
+                  <button className="w-1/12  text-xl sm:text-3xl text-gray-500 hover:text-gray-700">
+                     ×
+                  </button>
                </span>
 
                <div className="mt-1 sm:mt-4 flex items-center space-x-2">
