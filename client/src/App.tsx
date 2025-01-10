@@ -37,7 +37,10 @@ function App() {
         <Route path="/chats/message" element={<Chatlayout />} />
         <Route path="/chats/individualmessage" element={<Chatpage />} />
         <Route path="/chats/appoinment" element={<Doctorlist />} />
-        <Route path="/shopping" element={<Shopping />} />
+        <Route
+          path="/shopping"
+          element={<Shopping setMenu={setMenu} menu={menu} />}
+        />
         <Route path="/shopping/cart" element={<CartElement />} />
         <Route
           path="/shopping/individualproduct"
