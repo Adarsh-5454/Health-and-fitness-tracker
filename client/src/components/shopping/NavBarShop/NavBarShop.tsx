@@ -8,7 +8,7 @@ import NavMenu from "../../Navbar/NavMenu";
 
 const NavBarShop = ({ setMenu, menu }) => {
   return (
-    <div className="w-full   sticky top-0 py-1 sm:py-4 bg-primary-dark flex justify-between px-4 sm:px-24">
+    <div className="w-full z-10  sticky top-0 py-1 sm:py-4 bg-primary-dark flex justify-between px-4 sm:px-24">
       <NavLink
         to="/shopping"
         className={({ isActive }) => (isActive ? "font-bold" : "")}
