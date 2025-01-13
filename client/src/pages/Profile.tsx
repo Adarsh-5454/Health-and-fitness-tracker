@@ -10,7 +10,7 @@ const Profile = () => {
    //   const [isRole, setIsRole] = useState(false);
    return (
       <>
-         <div className="flex   mt-10 sm:px-4 md:px-12 xl:px-32 w-full">
+         <div className=" sm:flex   mt-10 sm:px-4 md:px-12 xl:px-32 w-full">
             <ProfileNav setProfileId={setProfileId} />
             <div className="sm:ms-5 border-s-2 border-slate-700  sm:border-s-4 border-slate-700 w-full sm:w-10/12 max-h-screen overflow-y-scroll no-scrollbar">
                {profileId === 0 && <EditProfile />}
