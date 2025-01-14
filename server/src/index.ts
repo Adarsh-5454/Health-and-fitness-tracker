@@ -24,13 +24,13 @@ app.use(logger);
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/blog", postBlog);
-app.use("/api/chat"); // add controller name also
-app.use("/api/shopping"); // add controller name also
+// app.use("/api/chat"); // add controller name also
+// app.use("/api/shopping"); // add controller name also
 
 app.get("/", (req: Request, res: Response) => {
-   res.send("API is running...");
+  res.send("API is running...");
 });
 
 app.listen(PORT, () => {
-   console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
