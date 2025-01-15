@@ -2,6 +2,7 @@ import express from "express";
 import {
   deleteBlog,
   postBlog,
+  updateBlog,
 } from "../../controllers/blogController/blogController";
 
 const router = express.Router();
@@ -10,5 +11,6 @@ const router = express.Router();
 
 router.post("/", postBlog);
 router.delete("/:id", deleteBlog);
+router.put("/:id", updateBlog);
 
 export default router;

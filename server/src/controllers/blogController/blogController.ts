@@ -37,3 +37,18 @@ export const deleteBlog = async (
     res.status(500).json({ message: "Error deleting blog" });
   }
 };
+
+export const updateBlog = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const blogId = req.params.id;
+  try {
+    const updatedBlog = await Blog.findByIdAndUpdate(blogId, req.body, {
+      new: true,
+    });
+    res.status(200).json({ message: "Blog updated successfully", updatedBlog });
+  } catch (error) {
+    console.error("Error updating blog:", error);
+  }
+};
