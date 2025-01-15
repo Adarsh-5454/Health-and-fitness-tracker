@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import Blog, { IBlog } from "../../models/blogModel/Blog";
-import { v2 as cloudinary } from "cloudinary";
 
 export const postBlog = async (req: Request, res: Response): Promise<void> => {
   const { title, discription, image, author, category, createdAt } = req.body;
@@ -24,8 +23,17 @@ export const postBlog = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: "Error posting blog" });
   }
 };
-cloudinary.config({
-  cloud_name: "dcklufz4q",
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+
+export const deleteBlog = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const blogId = req.params.id;
+  try {
+    const deletedBlog = await Blog.findByIdAndDelete(blogId);
+    res.status(200).json({ message: "Blog deleted successfully", deletedBlog });
+  } catch (error) {
+    console.error("Error deleting blog:", error);
+    res.status(500).json({ message: "Error deleting blog" });
+  }
+};
