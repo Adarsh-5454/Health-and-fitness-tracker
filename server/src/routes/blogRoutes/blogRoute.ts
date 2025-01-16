@@ -12,6 +12,6 @@ const router = express.Router();
 
 router.post("/", uploader.single("image"), postBlog);
 router.delete("/:id", deleteBlog);
-router.put("/:id", updateBlog);
+router.patch("/:id", uploader.single("image"), updateBlog);
 
 export default router;
