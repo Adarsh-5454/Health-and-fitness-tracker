@@ -4,7 +4,7 @@ import connectDB from "./config/db";
 import userRoutes from "./routes/userRoutes";
 import blogRoutes from "./routes/blogRoutes/blogRoute";
 // import chatRoutes from "./routes/blogRoutes/blogRoute";
-// import shoppingRoutes from "./routes/blogRoutes/blogRoute";
+import productRoutes from "./routes/shoppingRoutes/productRoutes";
 import logger from "./middlewares/logger";
 import cors from "cors";
 import morgan from "morgan";
@@ -27,7 +27,7 @@ app.use(logger);
 app.use("/api/users", userRoutes);
 app.use("/api/blog", blogRoutes);
 // app.use("/api/chatRoutes"); // add controller name also
-// app.use("/api/shoppingRoutes"); // add controller name also
+app.use("/api/shoppingRoutes", productRoutes); // add controller name also
 
 app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
