@@ -134,6 +134,7 @@ export const searchBlog = async (
         { title: { $regex: searchTerm, $options: "i" } },
 
         { category: { $regex: searchTerm, $options: "i" } },
+        { author: { $regex: searchTerm, $options: "i" } },
       ],
     });
     res.status(200).json(result);
