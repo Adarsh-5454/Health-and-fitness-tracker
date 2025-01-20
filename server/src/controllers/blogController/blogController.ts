@@ -114,3 +114,31 @@ export const updateBlog = async (
     console.error("Error updating blog:", error);
   }
 };
+
+// searching a blog
+
+export const searchBlog = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { searchTerm } = req.query;
+
+  if (!searchTerm) {
+    res.status(400).json({ message: "Search term is required" });
+    return;
+  }
+
+  try {
+    const result = await Blog.find({
+      $or: [
+        { title: { $regex: searchTerm, $options: "i" } },
+
+        { category: { $regex: searchTerm, $options: "i" } },
+      ],
+    });
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Error searching blog:", error);
+    res.status(500).json({ message: "internal server error" });
+  }
+};
