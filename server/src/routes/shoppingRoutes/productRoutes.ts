@@ -4,7 +4,7 @@ import {
   createProduct,
   deleteProduct,
   updateProduct,
-  // getProductById,
+  getProductById,
 } from "../../controllers/shoppingController/productController";
 
 const router = express.Router();
@@ -13,7 +13,7 @@ const router = express.Router();
 router.get("/", getProducts);
 
 // Get a single User
-// router.post("/:id", getProductById);
+router.get("/:id", getProductById);
 
 // Add a new user
 router.post("/", createProduct);

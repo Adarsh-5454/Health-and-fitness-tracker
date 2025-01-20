@@ -53,23 +53,23 @@ export const createProduct = async (
 };
 
 // Get a single product by ID
-// export const getProductById = async (
-//   req: Request,
-//   res: Response
-// ): Promise<void> => {
-//   const productid = req.params.id;
-//   try {
-//     const product = await Product.findById(productid);
+export const getProductById = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const productid = req.params.id;
+  try {
+    const product = await Product.findById({ _id: productid });
 
-//     if (!product) {
-//       res.status(404).json({ message: "Product not found" });
-//     }
+    if (!product) {
+      res.status(404).json({ message: "Product not found" });
+    }
 
-//     res.status(200).json(product);
-//   } catch (error) {
-//     res.status(500).json({ message: "Failed to fetch product", error });
-//   }
-// };
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch product", error });
+  }
+};
 
 // update product
 
