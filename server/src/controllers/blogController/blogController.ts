@@ -6,104 +6,86 @@ import fs from "fs";
 // multer configuration
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./uploads/blogs");
-  },
-  filename: (req, file, cb) => {
-    const name = `${Date.now()}-${file.originalname}`;
-    cb(null, name);
-  },
+   destination: (req, file, cb) => {
+      cb(null, "./uploads/blogs");
+   },
+   filename: (req, file, cb) => {
+      const name = `${Date.now()}-${file.originalname}`;
+      cb(null, name);
+   },
 });
 export const uploader = multer({ storage });
-
-// blog deletion
-
-export const deleteBlog = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
-  const blogId = req.params.id;
-  try {
-    const deletedBlog = await Blog.findByIdAndDelete(blogId);
-    res.status(200).json({
-      message: "Blog deleted successfully",
-      deletedBlog,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Error deleting blog" });
-  }
-};
 
 // blog updation
 
 export const updateBlog = async (
-  req: Request,
-  res: Response
+   req: Request,
+   res: Response
 ): Promise<void> => {
-  const blogId = req.params.id;
+   const blogId = req.params.id;
 
-  try {
-    const existingBlog = await Blog.findById(blogId);
+   try {
+      const existingBlog = await Blog.findById(blogId);
 
-    if (!existingBlog) {
-      res.status(404).json({ message: "Blog not found" });
-      return;
-    }
-
-    if (req.file) {
-      if (existingBlog.image) {
-        fs.unlink(existingBlog.image, (err) => {
-          if (err) {
-            console.error("Error deleting old image:", err);
-          }
-        });
+      if (!existingBlog) {
+         res.status(404).json({ message: "Blog not found" });
+         return;
       }
 
-      existingBlog.image = req.file.path;
-    }
+      if (req.file) {
+         if (existingBlog.image) {
+            fs.unlink(existingBlog.image, (err) => {
+               if (err) {
+                  console.error("Error deleting old image:", err);
+               }
+            });
+         }
 
-    const { title, description, category, author } = req.body;
+         existingBlog.image = req.file.path;
+      }
 
-    if (title) existingBlog.title = title;
-    if (description) existingBlog.description = description;
-    if (category) existingBlog.category = category;
-    if (author) existingBlog.author = author;
+      const { title, description, category, author } = req.body;
 
-    const updatedBlog = await existingBlog.save();
+      if (title) existingBlog.title = title;
+      if (description) existingBlog.description = description;
+      if (category) existingBlog.category = category;
+      if (author) existingBlog.author = author;
 
-    res.status(200).json({
-      message: "Blog updated successfully",
-      updatedBlog,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Error updating blog" });
-  }
+      const updatedBlog = await existingBlog.save();
+
+      res.status(200).json({
+         message: "Blog updated successfully",
+         updatedBlog,
+      });
+   } catch (error) {
+      res.status(500).json({ message: "Error updating blog" });
+   }
 };
 
 // searching a blog
 
 export const searchBlog = async (
-  req: Request,
-  res: Response
+   req: Request,
+   res: Response
 ): Promise<void> => {
-  const { searchTerm } = req.query;
+   const { searchTerm } = req.query;
 
-  if (!searchTerm) {
-    res.status(400).json({ message: "Search term is required" });
-    return;
-  }
+   if (!searchTerm) {
+      res.status(400).json({ message: "Search term is required" });
+      return;
+   }
 
-  try {
-    const result = await Blog.find({
-      $or: [
-        { title: { $regex: searchTerm, $options: "i" } },
+   try {
+      const result = await Blog.find({
+         $or: [
+            { title: { $regex: searchTerm, $options: "i" } },
 
-        { category: { $regex: searchTerm, $options: "i" } },
-        { author: { $regex: searchTerm, $options: "i" } },
-      ],
-    });
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({ message: "internal server error" });
-  }
+            { category: { $regex: searchTerm, $options: "i" } },
+            { author: { $regex: searchTerm, $options: "i" } },
+         ],
+      });
+      res.status(200).json(result);
+   } catch (error) {
+      res.status(500).json({ message: "internal server error" });
+   }
 };
