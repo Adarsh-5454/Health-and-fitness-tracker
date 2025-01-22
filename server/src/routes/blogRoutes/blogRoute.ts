@@ -1,12 +1,12 @@
 import express from "express";
 import {
-   deleteBlog,
-   postBlog,
-   searchBlog,
-   getSingleBlog,
-   updateBlog,
-   uploader,
+  deleteBlog,
+  searchBlog,
+  updateBlog,
+  uploader,
 } from "../../controllers/blogController/blogController";
+import { postBlog } from "../../controllers/blogController/postBlog";
+import { getSingleBlog } from "../../controllers/blogController/getSingleBlog";
 
 const router = express.Router();
 
