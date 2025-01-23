@@ -1,7 +1,4 @@
-import { Request, Response } from "express";
-import Blog, { IBlog } from "../../models/blogModel/Blog";
 import multer from "multer";
-import fs from "fs";
 
 // multer configuration
 
@@ -15,5 +12,3 @@ const storage = multer.diskStorage({
    },
 });
 export const uploader = multer({ storage });
-
-// blog updation

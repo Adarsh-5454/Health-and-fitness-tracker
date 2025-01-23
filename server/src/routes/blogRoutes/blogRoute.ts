@@ -1,5 +1,5 @@
 import express from "express";
-import { uploader } from "../../controllers/blogController/blogController";
+import { uploader } from "../../controllers/blogController/blogMulter";
 import { postBlog } from "../../controllers/blogController/postBlog";
 import { getSingleBlog } from "../../controllers/blogController/getSingleBlog";
 import { deleteBlog } from "../../controllers/blogController/deleteBlog";
