@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db";
 import userRoutes from "./routes/userRoutes";
 import blogRoutes from "./routes/blogRoutes/blogRoute";
+import cartRoutes from "./routes/shoppingRoutes/cartRoutes";
 // import chatRoutes from "./routes/blogRoutes/blogRoute";
 import productRoutes from "./routes/shoppingRoutes/productRoutes";
 import logger from "./middlewares/logger";
@@ -29,6 +30,7 @@ app.use("/api/blog", blogRoutes);
 // app.use("/api/chatRoutes"); // add controller name also
 app.use("/api/shoppingRoutes", productRoutes); // add controller name also
 
+app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
 app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
 });
