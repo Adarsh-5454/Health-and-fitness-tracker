@@ -57,3 +57,26 @@ export const getCart = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: "Failed to fetch cart", error });
   }
 };
+
+export const updateCart = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const cartid = req.params.id;
+  try {
+    const updatedData = req.body;
+
+    const updatedCart = await Cart.findByIdAndUpdate(cartid, updatedData, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updatedCart) {
+      res.status(404).json({ message: "cart not found" });
+    }
+    res
+      .status(200)
+      .json({ message: "Cart updated successfully", cart: updatedCart });
+  } catch (error) {
+    res.status(400).json({ message: "failed to update cart", error });
+  }
+};
