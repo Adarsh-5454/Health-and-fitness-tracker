@@ -4,7 +4,7 @@ interface ICartItem {
   product_id: mongoose.Schema.Types.ObjectId;
   quantity: number;
 }
-    
+
 export interface ICart extends Document {
   items: ICartItem[];
 }

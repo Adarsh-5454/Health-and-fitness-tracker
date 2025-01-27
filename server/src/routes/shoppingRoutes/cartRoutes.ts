@@ -1,15 +1,13 @@
+import express from "express";
+import {
+  addToCart,
+  getCart,
+  //   removeFromCart,
+} from "../../controllers/shoppingController/cartController";
 
+const router = express.Router();
 
-    import express from "express";
-    import {
-    addToCart,
-    getCart,
-    //   removeFromCart,
-    } from "../../controllers/shoppingController/cartController";
+router.post("/", addToCart);
+router.get("/item", getCart);
 
-    const router = express.Router();
-
-    router.post("/", addToCart);
-    router.get("/", getCart);
-
-    export default router;
+export default router;

@@ -54,6 +54,6 @@ export const getCart = async (req: Request, res: Response): Promise<void> => {
 
     res.status(200).json(cart);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch cart", error });
-  }
-};  
+    res.status(500).json({ message: "Failed to fetch cart", error });
+  }
+};
