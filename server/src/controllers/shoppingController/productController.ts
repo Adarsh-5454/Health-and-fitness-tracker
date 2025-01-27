@@ -73,6 +73,7 @@ export const getProductById = async (
 
 // update product
 
+
 export const updateProduct = async (
   req: Request,
   res: Response
