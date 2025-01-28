@@ -22,6 +22,7 @@ const cartItemSchema: Schema = new Schema({
     required: true,
     min: 1,
   },
+  Price: { type: Number },
 });
 
 const cartSchema: Schema = new Schema(
