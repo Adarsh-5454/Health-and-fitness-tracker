@@ -1,10 +1,10 @@
 import express from "express";
 import {
-   addToCart,
-   getCart,
-   updateCart,
-   deleteCart,
-   //   removeFromCart,
+  addToCart,
+  getCart,
+  updateCart,
+  deleteCart,
+  //   removeFromCart,
 } from "../../controllers/shoppingController/cartController";
 
 const router = express.Router();

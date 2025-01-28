@@ -1,24 +1,26 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Mongoose } from "mongoose";
 
 interface ICartItem {
   product_id: mongoose.Schema.Types.ObjectId;
   quantity: number;
+  Price: number;
 }
 
 export interface ICart extends Document {
   items: ICartItem[];
+  totalPrice: number;
 }
 
 const cartItemSchema: Schema = new Schema({
   product_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Product", // Reference the model name as a string
+    ref: "Product",
     required: true,
   },
   quantity: {
     type: Number,
     required: true,
-    min: 1, // Ensure a minimum quantity
+    min: 1,
   },
 });
 
@@ -31,8 +33,16 @@ const cartSchema: Schema = new Schema(
         message: "Cart must have at least one item",
       },
     },
+    totalPrice: { type: Number },
   },
-  { timestamps: true } // Automatically add createdAt and updatedAt fields
+  { timestamps: true }
 );
+
+cartSchema.pre<ICart>("save", function (next) {
+  this.totalPrice = this.items.reduce((total, item) => {
+    return total + item.Price * item.quantity;
+  }, 0);
+  next();
+});
 
 export default mongoose.model<ICart>("Cart", cartSchema);
