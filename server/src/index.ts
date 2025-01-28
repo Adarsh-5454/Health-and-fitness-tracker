@@ -8,6 +8,7 @@ import blogRoutes from "./routes/blogRoutes/blogRoute";
 import logger from "./middlewares/logger";
 import cors from "cors";
 import morgan from "morgan";
+import chatRoutes from "./routes/chatRoutes/chatRoute";
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ app.use(logger);
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/blog", blogRoutes);
-// app.use("/api/chatRoutes"); // add controller name also
+ app.use("/api/chats", chatRoutes);
 // app.use("/api/shoppingRoutes"); // add controller name also
 
 app.get("/", (req: Request, res: Response) => {
