@@ -3,8 +3,9 @@ import dotenv from "dotenv";
 import connectDB from "./config/db";
 import userRoutes from "./routes/userRoutes";
 import blogRoutes from "./routes/blogRoutes/blogRoute";
+import cartRoutes from "./routes/shoppingRoutes/cartRoutes";
 // import chatRoutes from "./routes/blogRoutes/blogRoute";
-// import shoppingRoutes from "./routes/blogRoutes/blogRoute";
+import productRoutes from "./routes/shoppingRoutes/productRoutes";
 import logger from "./middlewares/logger";
 import cors from "cors";
 import morgan from "morgan";
@@ -27,9 +28,9 @@ app.use(logger);
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/blog", blogRoutes);
- app.use("/api/chats", chatRoutes);
-// app.use("/api/shoppingRoutes"); // add controller name also
-
+app.use("/api/chats", chatRoutes);
+app.use("/api/shoppingRoutes", productRoutes);
+app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
 app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
 });
