@@ -51,6 +51,20 @@ userSchema.statics.signup = async function (
   }
 };
 
+// Define the static LOGIN method
+
+// userSchema.statics.login = async function name(
+//   email: string,
+//   password: string
+// ): Promise<void> {
+
+//   if (!email || !password) {
+//     throw Error('All fields must be filled')
+//   }
+//   const user= await this.findOne({email});
+
+// };
+
 // Export the User model
 
 const User = mongoose.model<IUser, IUserModel>("User", userSchema);
