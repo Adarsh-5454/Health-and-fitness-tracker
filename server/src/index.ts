@@ -9,6 +9,7 @@ import productRoutes from "./routes/shoppingRoutes/productRoutes";
 import logger from "./middlewares/logger";
 import cors from "cors";
 import morgan from "morgan";
+import chatRoutes from "./routes/chatRoutes/chatRoute";
 
 dotenv.config();
 
@@ -27,9 +28,8 @@ app.use(logger);
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/blog", blogRoutes);
-// app.use("/api/chatRoutes"); // add controller name also
-app.use("/api/shoppingRoutes", productRoutes); // add controller name also
-
+app.use("/api/chats", chatRoutes);
+app.use("/api/shoppingRoutes", productRoutes);
 app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
 app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
