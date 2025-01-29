@@ -4,6 +4,6 @@ import { createProfile } from "../../controllers/profileController/profileContro
 
 const router = express.Router();
 
-router.post("/signup", createProfile);
+router.post("/", createProfile);
 
 export default router;

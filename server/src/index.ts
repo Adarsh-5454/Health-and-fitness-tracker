@@ -10,7 +10,7 @@ import logger from "./middlewares/logger";
 import cors from "cors";
 import morgan from "morgan";
 import chatRoutes from "./routes/chatRoutes/chatRoute";
-import profileRoutes from "./routes/profileRoutes/ProfileRoutes";
+import profileRoutes from "./routes/profileRoutes/profileRoutes";
 
 dotenv.config();
 
@@ -28,15 +28,16 @@ app.use(logger);
 
 // Routes
 app.use("/api/users", userRoutes);
-app.use("api/profile", profileRoutes);
+app.use("/api/profile", profileRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/shoppingRoutes", productRoutes);
 app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
+
 app.get("/", (req: Request, res: Response) => {
-  res.send("API is running...");
+   res.send("API is running...");
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+   console.log(`Server is running on http://localhost:${PORT}`);
 });
