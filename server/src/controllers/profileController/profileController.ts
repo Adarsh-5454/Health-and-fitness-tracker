@@ -60,3 +60,25 @@ export const createProfile = async (
     });
   }
 };
+
+export const deleteProfile = async (
+   req: Request,
+   res: Response
+): Promise<void> => {
+   try {
+      const { id } = req.params;
+      const deletedProfile = await Profile.findByIdAndDelete(id);
+
+      if (!deletedProfile) {
+         res.status(404).json({ message: "Profile not found" });
+         return;
+      }
+
+      res.status(200).json({
+         message: "Profile deleted successfully",
+         deletedProfile,
+      });
+   } catch (error) {
+      res.status(500).json({ message: "Error deleting profile", error });
+   }
+};
