@@ -9,7 +9,6 @@ export const createProfile = async (
       const { userName, fullName, email, dob, address, city, state, pincode } =
          req.body;
 
-      // Validation: Check if all required fields are present
       if (
          !userName ||
          !fullName ||
@@ -21,7 +20,7 @@ export const createProfile = async (
          !pincode
       ) {
          res.status(400).json({ message: "Please fill all the fields" });
-         return; // Stop execution after response
+         return;
       }
 
       // Check if email already exists
@@ -53,5 +52,27 @@ export const createProfile = async (
          message: "Error creating profile",
          error: error.message,
       });
+   }
+};
+
+export const deleteProfile = async (
+   req: Request,
+   res: Response
+): Promise<void> => {
+   try {
+      const { id } = req.params;
+      const deletedProfile = await Profile.findByIdAndDelete(id);
+
+      if (!deletedProfile) {
+         res.status(404).json({ message: "Profile not found" });
+         return;
+      }
+
+      res.status(200).json({
+         message: "Profile deleted successfully",
+         deletedProfile,
+      });
+   } catch (error) {
+      res.status(500).json({ message: "Error deleting profile", error });
    }
 };
