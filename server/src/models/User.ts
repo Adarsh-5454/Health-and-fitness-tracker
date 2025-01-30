@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 import bcrypt from "bcrypt";
+import Profile from "./profileModel/profile";
 
 // Define the IUser interface
 export interface IUser extends Document {
@@ -45,6 +46,7 @@ userSchema.statics.signup = async function (
     // Create and return the new user
 
     const user = await this.create({ name, email, password: hash });
+    await Profile.create({ userId: user._id });
     return user;
   } catch (error) {
     throw error;
