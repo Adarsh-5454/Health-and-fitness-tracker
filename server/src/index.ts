@@ -11,6 +11,8 @@ import cartRoutes from "./routes/shoppingRoutes/cartRoutes";
 import cors from "cors";
 import morgan from "morgan";
 import Message from "./models/chatModel/chat"; // Import your chat model
+// import chatRoutes from "./routes/chatRoutes/chatRoute";
+import profileRoutes from "./routes/profileRoutes/profileRoutes";
 
 dotenv.config();
 connectDB();
@@ -75,6 +77,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+<<<<<<< HEAD
 app.use("/api/blogs", blogRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/shopping", productRoutes);
@@ -83,4 +86,18 @@ app.use("/api/shopping/cart", cartRoutes);
 // Start Server
 server.listen(PORT, () => {
   console.log(`✅ Server is running on http://localhost:${PORT}`);
+=======
+app.use("/api/profile", profileRoutes);
+app.use("/api/blog", blogRoutes);
+app.use("/api/chats", chatRoutes);
+app.use("/api/shoppingRoutes", productRoutes);
+app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
+
+app.get("/", (req: Request, res: Response) => {
+   res.send("API is running...");
+});
+
+app.listen(PORT, () => {
+   console.log(`Server is running on http://localhost:${PORT}`);
+>>>>>>> 92f6b8c13b19a3e8f0efb020064abbd941045584
 });
