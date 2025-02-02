@@ -8,7 +8,7 @@ function Blogs() {
             {/* blog-section ============================================================================ */}
             <section
                id="blog"
-               className="flex flex-col justify-center items-center py-10 border-t border-b border-gray-200"
+               className="flex flex-col justify-center items-center  py-10 border-t border-b border-gray-200"
             >
                {/* blog-heading -------------- */}
                <div className="flex flex-col justify-center items-center">
