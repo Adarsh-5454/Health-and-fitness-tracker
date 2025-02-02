@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogCard from "../components/Blog/BlogCard";
 import { FaSearch } from "react-icons/fa";
 import { IoAddOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+
+interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  author: string;
+  createdAt: string;
+}
 
 function Blogs() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get<Blog[]>(
+          "http://localhost:5000/api/blog"
+        );
+        setBlogs(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBlogs();
+  }, []);
   return (
     <>
       <div>
@@ -39,14 +66,16 @@ function Blogs() {
 
           {/* container ----------------- */}
           <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
-            <BlogCard
-              title="The Ultimate Guide to Healthy Living"
-              description="Including nutrition, exercise, mental well-being, and lifestyle choices."
-              image="https://c0.wallpaperflare.com/preview/360/533/202/health-medical-healthcare-health.jpg"
-              category="Health & Wellness"
-              author="John Doe"
-              createdAt="20/10/2025"
-            />
+            {blogs.map((blog) => (
+              <BlogCard
+                title={blog.title}
+                description={blog.description}
+                image={blog.image}
+                category={blog.category}
+                author={blog.author}
+                createdAt={blog.createdAt}
+              />
+            ))}
           </div>
         </section>
       </div>
