@@ -1,125 +1,126 @@
-import { Product } from "./types";
-export const clothingProducts: Product[] = [
-  {
-    id: "C1",
-    name: "Men's Workout T-Shirt",
-    image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/5/v/v/xxl-compression-half-sleeves-dry-fit-tshirts-for-high-original-imahft2mubpfzffz.jpeg?q=70&crop=false",
-    price: {
-      original: 999,
-      discounted: 799,
-    },
-    rating: 4.5,
-    reviews: 150,
-    category: "Clothing",
-    description:
-      "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
-    specifications: {
-      color: ["Black", "Navy Blue", "Grey"],
-      material: "Cotton Blend",
-      product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
-      pattern: "Solid",
-      sleeve: "Full Sleeve",
-      size: ["S", "M", "L", "XL", "XXL"],
-    },
-    brand: "UrbanFit",
-  },
-  {
-    id: "C2",
-    name: "Women's High-Waist Leggings",
-    image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/tight/p/a/z/xxl-af-01-cosvos-original-imah7syp4thgjxsz.jpeg?q=70&crop=false",
-    price: {
-      original: 1499,
-      discounted: 1199,
-    },
-    rating: 4.7,
-    reviews: 220,
-    category: "Clothing",
-    description:
-      "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
-    specifications: {
-      color: ["Black", "Navy Blue", "Grey"],
-      material: "Cotton Blend",
-      product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
-      pattern: "Solid",
-      sleeve: "Full Sleeve",
-      size: ["S", "M", "L", "XL", "XXL"],
-    },
-    brand: "UrbanFit",
-  },
-  {
-    id: "C3",
-    name: "Unisex Hoodie for Gym",
-    image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/sweatshirt/t/3/7/s-womensweatshirt-1-skin-indizo-original-imah6wh4heud5ra8.jpeg?q=70&crop=false",
-    price: {
-      original: 1999,
-      discounted: 1799,
-    },
-    rating: 4.6,
-    reviews: 180,
-    category: "Clothing",
-    description:
-      "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
-    specifications: {
-      color: ["Black", "Navy Blue", "Grey"],
-      material: "Cotton Blend",
-      product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
-      pattern: "Solid",
-      sleeve: "Full Sleeve",
-      size: ["S", "M", "L", "XL", "XXL"],
-    },
-    brand: "UrbanFit",
-  },
-  {
-    id: "C4",
-    name: "Compression Shorts (Pack of 2)",
-    image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/short/y/0/y/xl-men-s-pack-of-2-outdoor-quick-dry-lightweight-sports-shorts-original-imah2hffbpjf6dtj.jpeg?q=70&crop=false",
-    price: {
-      original: 1299,
-      discounted: 1099,
-    },
-    rating: 4.4,
-    reviews: 140,
-    category: "Clothing",
-    description:
-      "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
-    specifications: {
-      color: ["Black", "Navy Blue", "Grey"],
-      material: "Cotton Blend",
-      product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
-      pattern: "Solid",
-      sleeve: "Full Sleeve",
-      size: ["S", "M", "L", "XL", "XXL"],
-    },
-    brand: "UrbanFit",
-  },
-  {
-    id: "C5",
-    name: "Breathable Running Jacket",
-    image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/3/j/j/l-no-avj001-avolt-original-imah5fa6nkych3uq.jpeg?q=70&crop=false",
-    price: {
-      original: 2499,
-      discounted: 2199,
-    },
-    rating: 4.5,
-    reviews: 200,
-    category: "Clothing",
-    description:
-      "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
-    specifications: {
-      color: ["Black", "Navy Blue", "Grey"],
-      material: "Cotton Blend",
-      product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
-      pattern: "Solid",
-      sleeve: "Full Sleeve",
-      size: ["S", "M", "L", "XL", "XXL"],
-    },
-    brand: "UrbanFit",
-  },
+// import { Product } from "./types";
+// export const clothingProducts: Product[] = [
+//   {
+//   }
+  //   id: "C1",
+  //   name: "Men's Workout T-Shirt",
+  //   image:
+  //     "https://rukminim2.flixcart.com/image/832/832/xif0q/t-shirt/5/v/v/xxl-compression-half-sleeves-dry-fit-tshirts-for-high-original-imahft2mubpfzffz.jpeg?q=70&crop=false",
+  //   price: {
+  //     original: 999,
+  //     discounted: 799,
+  //   },
+  //   rating: 4.5,
+  //   reviews: 150,
+  //   category: "Clothing",
+  //   description:
+  //     "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
+  //   specifications: {
+  //     color: ["Black", "Navy Blue", "Grey"],
+  //     material: "Cotton Blend",
+  //     product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
+  //     pattern: "Solid",
+  //     sleeve: "Full Sleeve",
+  //     size: ["S", "M", "L", "XL", "XXL"],
+  //   },
+  //   brand: "UrbanFit",
+  // },
+  // {
+  //   id: "C2",
+  //   name: "Women's High-Waist Leggings",
+  //   image:
+  //     "https://rukminim2.flixcart.com/image/832/832/xif0q/tight/p/a/z/xxl-af-01-cosvos-original-imah7syp4thgjxsz.jpeg?q=70&crop=false",
+  //   price: {
+  //     original: 1499,
+  //     discounted: 1199,
+  //   },
+  //   rating: 4.7,
+  //   reviews: 220,
+  //   category: "Clothing",
+  //   description:
+  //     "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
+  //   specifications: {
+  //     color: ["Black", "Navy Blue", "Grey"],
+  //     material: "Cotton Blend",
+  //     product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
+  //     pattern: "Solid",
+  //     sleeve: "Full Sleeve",
+  //     size: ["S", "M", "L", "XL", "XXL"],
+  //   },
+  //   brand: "UrbanFit",
+  // },
+  // {
+  //   id: "C3",
+  //   name: "Unisex Hoodie for Gym",
+  //   image:
+  //     "https://rukminim2.flixcart.com/image/832/832/xif0q/sweatshirt/t/3/7/s-womensweatshirt-1-skin-indizo-original-imah6wh4heud5ra8.jpeg?q=70&crop=false",
+  //   price: {
+  //     original: 1999,
+  //     discounted: 1799,
+  //   },
+  //   rating: 4.6,
+  //   reviews: 180,
+  //   category: "Clothing",
+  //   description:
+  //     "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
+  //   specifications: {
+  //     color: ["Black", "Navy Blue", "Grey"],
+  //     material: "Cotton Blend",
+  //     product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
+  //     pattern: "Solid",
+  //     sleeve: "Full Sleeve",
+  //     size: ["S", "M", "L", "XL", "XXL"],
+  //   },
+  //   brand: "UrbanFit",
+  // },
+  // {
+  //   id: "C4",
+  //   name: "Compression Shorts (Pack of 2)",
+  //   image:
+  //     "https://rukminim2.flixcart.com/image/832/832/xif0q/short/y/0/y/xl-men-s-pack-of-2-outdoor-quick-dry-lightweight-sports-shorts-original-imah2hffbpjf6dtj.jpeg?q=70&crop=false",
+  //   price: {
+  //     original: 1299,
+  //     discounted: 1099,
+  //   },
+  //   rating: 4.4,
+  //   reviews: 140,
+  //   category: "Clothing",
+  //   description:
+  //     "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
+  //   specifications: {
+  //     color: ["Black", "Navy Blue", "Grey"],
+  //     material: "Cotton Blend",
+  //     product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
+  //     pattern: "Solid",
+  //     sleeve: "Full Sleeve",
+  //     size: ["S", "M", "L", "XL", "XXL"],
+  //   },
+  //   brand: "UrbanFit",
+  // },
+  // {
+  //   id: "C5",
+  //   name: "Breathable Running Jacket",
+  //   image:
+  //     "https://rukminim2.flixcart.com/image/832/832/xif0q/jacket/3/j/j/l-no-avj001-avolt-original-imah5fa6nkych3uq.jpeg?q=70&crop=false",
+  //   price: {
+  //     original: 2499,
+  //     discounted: 2199,
+  //   },
+  //   rating: 4.5,
+  //   reviews: 200,
+  //   category: "Clothing",
+  //   description:
+  //     "Stay stylish and comfortable with UrbanFit's full-zip hoodie, crafted from premium cotton-blend fabric. Perfect for workouts, casual outings, or lounging at home.",
+  //   specifications: {
+  //     color: ["Black", "Navy Blue", "Grey"],
+  //     material: "Cotton Blend",
+  //     product_dimensions: "L x W x H: 40cm x 30cm x 2cm",
+  //     pattern: "Solid",
+  //     sleeve: "Full Sleeve",
+  //     size: ["S", "M", "L", "XL", "XXL"],
+  //   },
+  //   brand: "UrbanFit",
+  // },
   // {
   //   id: "C6",
   //   name: "Athletic Socks (Pack of 3)",
