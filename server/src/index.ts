@@ -8,11 +8,10 @@ import blogRoutes from "./routes/blogRoutes/blogRoute";
 import chatRoutes from "./routes/chatRoutes/chatRoute";
 import productRoutes from "./routes/shoppingRoutes/productRoutes";
 import cartRoutes from "./routes/shoppingRoutes/cartRoutes";
+import profileRoutes from "./routes/profileRoutes/profileRoutes"; // Import profile routes
 import cors from "cors";
 import morgan from "morgan";
 import Message from "./models/chatModel/chat"; // Import your chat model
-// import chatRoutes from "./routes/chatRoutes/chatRoute";
-import profileRoutes from "./routes/profileRoutes/profileRoutes";
 
 dotenv.config();
 connectDB();
@@ -23,11 +22,15 @@ const PORT = process.env.PORT || 5000;
 // Create HTTP server
 const server = createServer(app);
 
-// Initialize Socket.IO
+// Log to confirm server start
+console.log(`Starting server on port ${PORT}`);
+
+// Initialize Socket.IO with updated CORS settings
 const io = new Server(server, {
   cors: {
-    origin: "*", // Allow all origins, update if needed
+    origin: "*", // Allow all origins (for testing)
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
@@ -87,6 +90,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("API is running...");
 });
 
-app.listen(PORT, () => {
+// Error handling middleware
+app.use((err: any, req: Request, res: Response, next: Function) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
+server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
