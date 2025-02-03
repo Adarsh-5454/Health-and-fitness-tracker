@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import BlogCard from "../components/Blog/BlogCard";
+import { FaSearch } from "react-icons/fa";
+import { IoAddOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+
+interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  author: string;
+  createdAt: string;
+}
 
 function Blogs() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get<Blog[]>(
+          "http://localhost:5000/api/blog"
+        );
+        setBlogs(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBlogs();
+  }, []);
   return (
     <>
       <div>
         {/* blog-section ============================================================================ */}
         <section
           id="blog"
-          className="flex flex-col justify-center items-center py-10 border-t border-b border-gray-200"
+          className="flex flex-col justify-center items-center  py-10 border-t border-b border-gray-200"
         >
           {/* blog-heading -------------- */}
           <div className="flex flex-col justify-center items-center">
@@ -17,7 +47,7 @@ function Blogs() {
           </div>
 
           {/* search bar */}
-          <div className="mt-2 flex items-center justify-between">
+          <div className="mt-2 flex items-center justify-around">
             <input
               type="text"
               placeholder="search for blogs"
@@ -25,113 +55,27 @@ function Blogs() {
               className="border border-gray-300 outline-none bg-gray-50 text-gray-700 px-4 py-3 h-14 rounded-full flex-1 mr-4 text-lg"
             />
             <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center">
-              <img src="src\assets\blogs\search.png" alt="" className="w-4" />
+              <FaSearch className="text-xl" />
             </button>
+            <NavLink to="/blogs/createBlog" className="ps-2">
+              <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center">
+                <IoAddOutline className="text-2xl" />
+              </button>
+            </NavLink>
           </div>
 
           {/* container ----------------- */}
           <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
-            {/* box-1 ------------- */}
-            <div className="w-[350px] bg-white border border-gray-200 m-5">
-              {/* img ---- */}
-              <div className="w-full h-auto">
-                <img
-                  alt="blog"
-                  src="src/assets/blogs/blog-1.jpeg"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              {/* text --- */}
-              <div className="p-6 flex flex-col">
-                <span className="text-red-500 text-sm">
-                  18 July 2021 / Web Design
-                </span>
-                <a href="#" className="text-xl font-medium text-gray-800 mt-2">
-                  What Has Happened to All of the Web Design Ideas?
-                </a>
-                <p className="text-gray-600 text-sm line-clamp-3 my-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?
-                </p>
-                <NavLink
-                  to="/blogs/readmore"
-                  className="text-black hover:text-red-500 transition-all duration-300"
-                >
-                  Read More
-                </NavLink>
-              </div>
-            </div>
-
-            {/* box-2 ------------- */}
-            <div className="w-[350px] bg-white border border-gray-200 m-5">
-              {/* img ---- */}
-              <div className="w-full h-auto">
-                <img
-                  alt="blog"
-                  src="src/assets/blogs/blog-2.jpeg"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              {/* text --- */}
-              <div className="p-6 flex flex-col">
-                <span className="text-red-500 text-sm">
-                  18 July 2021 / Web Design
-                </span>
-                <a href="#" className="text-xl font-medium text-gray-800 mt-2">
-                  What Has Happened to All of the Web Design Ideas?
-                </a>
-                <p className="text-gray-600 text-sm line-clamp-3 my-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?
-                </p>
-                <a
-                  href="#"
-                  className="text-black hover:text-red-500 transition-all duration-300"
-                >
-                  Read More
-                </a>
-              </div>
-            </div>
-
-            {/* box-3 ------------- */}
-            <div className="w-[350px] bg-white border border-gray-200 m-5 box-3">
-              {/* img ---- */}
-              <div className="w-full h-auto">
-                <img
-                  alt="blog"
-                  src="src/assets/blogs/blog-3.jpeg"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-              {/* text --- */}
-              <div className="p-6 flex flex-col">
-                <span className="text-red-500 text-sm">
-                  18 July 2021 / Web Design
-                </span>
-                <a href="#" className="text-xl font-medium text-gray-800 mt-2">
-                  What Has Happened to All of the Web Design Ideas?
-                </a>
-                <p className="text-gray-600 text-sm line-clamp-3 my-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate facilis modi veritatis adipisci omnis perferendis
-                  deleniti tempore quasi? Explicabo recusandae soluta vel cum
-                  perspiciatis consequuntur dolorum distinctio minima voluptate
-                  quae?
-                </p>
-                <a
-                  href="#"
-                  className="text-black hover:text-red-500 transition-all duration-300"
-                >
-                  Read More
-                </a>
-              </div>
-            </div>
+            {blogs.map((blog) => (
+              <BlogCard
+                title={blog.title}
+                description={blog.description}
+                image={blog.image}
+                category={blog.category}
+                author={blog.author}
+                createdAt={blog.createdAt}
+              />
+            ))}
           </div>
         </section>
       </div>
@@ -140,39 +84,3 @@ function Blogs() {
 }
 
 export default Blogs;
-
-// const blogs=[
-
-// {
-//    id:"blog1",
-//    title:"string",
-//    img:"src\assests\blogs\blog-1.jpeg",
-//    description:  "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
-//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
-//                   perspiciatis consequuntur dolorum distinctio minima voluptate
-//                   quae?,"
-
-//  }
-// {
-//    id:"blog2",
-//    title:"string",
-//    img:"src\assests\blogs\blog-2.jpeg",
-//    description:   "Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
-//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
-//                   perspiciatis consequuntur dolorum distinctio minima voluptate
-//                   quae?,"
-
-//  }
-//    id:"blog3",
-//    title:"string",
-//    img:"src\assests\blogs\blog-3.jpeg",
-//    description:  " Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//                   Cupiditate facilis modi veritatis adipisci omnis perferendis
-//                   deleniti tempore quasi? Explicabo recusandae soluta vel cum
-//                   perspiciatis consequuntur dolorum distinctio minima voluptate
-//                   quae?,"
-
-//  }
-// ]
