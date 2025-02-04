@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import React Router for navigation
+import { Link, useNavigate } from "react-router-dom"; // Import React Router for navigation
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "", // Changed from 'username' to 'name' to match backend
     email: "",
@@ -35,27 +36,27 @@ const Signup = () => {
     }
 
     // Check if passwords match
-    if (formData.password !== formData.confirmPassword) {
+    else if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match!");
       return;
-    }
-
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/users/signup",
-        {
-          name: formData.name, // Changed from 'username' to 'name'
-          email: formData.email,
-          password: formData.password,
-        }
-      );
-
-      alert(response.data.message); // Show success message
-    } catch (error: any) {
-      setError(
-        error.response?.data?.message || "Signup failed! Please try again."
-      ); // Improved error handling
-      console.error("Signup error:", error);
+    } else {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/users/signup",
+          {
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+          }
+        );
+        alert(response.data.message); // Show success message
+        navigate("/login");
+      } catch (error: any) {
+        setError(
+          error.response?.data?.message || "Signup failed! Please try again."
+        ); // Improved error handling
+        console.error("Signup error:", error);
+      }
     }
   };
 
