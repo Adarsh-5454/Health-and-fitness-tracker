@@ -4,6 +4,7 @@ interface ICartItem {
   product_id: mongoose.Schema.Types.ObjectId;
   quantity: number;
   Price: number;
+  cart_image: string;
 }
 
 export interface ICart extends Document {
@@ -23,6 +24,7 @@ const cartItemSchema: Schema = new Schema({
     min: 1,
   },
   Price: { type: Number },
+  cart_image: { type: String },
 });
 
 const cartSchema: Schema = new Schema(

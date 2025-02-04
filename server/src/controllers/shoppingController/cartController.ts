@@ -26,10 +26,12 @@ export const addToCart = async (req: Request, res: Response): Promise<void> => {
 
     if (existingItem) {
       existingItem.quantity += quantity;
+      existingItem.Price = product.price.discounted;
     } else {
       cart.items.push({
         product_id: productId,
         quantity,
+        cart_image: product.image,
         Price: product.price.discounted,
       });
     }
