@@ -18,7 +18,7 @@ const BlogCard = ({
                <img
                   alt="blog"
                   src={image}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center "
                />
             </div>
             {/* text --- */}
