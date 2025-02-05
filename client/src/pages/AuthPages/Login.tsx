@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 // Keep the Button component
 
-const Login = () => {
+const Login = ({ isLoggedIn, setisLoggedIn }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -12,7 +12,7 @@ const Login = () => {
 
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,6 +40,7 @@ const Login = () => {
     }
 
     try {
+      setisLoggedIn(true);
       setLoading(true);
       const response = await axios.post(
         "http://localhost:5000/api/users/login",
@@ -60,6 +61,7 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       });
+
       navigate("/");
     } catch (error: any) {
       setError(
