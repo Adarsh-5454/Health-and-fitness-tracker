@@ -70,6 +70,7 @@ function Blogs() {
                <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
                   {blogs.map((blog) => (
                      <BlogCard
+                        id={blog._id}
                         title={blog.title}
                         description={blog.description}
                         image={`src/assets/blogs/${blog.image}`}

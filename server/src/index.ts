@@ -12,7 +12,7 @@ import profileRoutes from "./routes/profileRoutes/profileRoutes"; // Import prof
 import cors from "cors";
 import morgan from "morgan";
 import Message from "./models/chatModel/chat"; // Import your chat model
-
+import contactRoutes from "./routes/contactRoutes/contactRoute";
 dotenv.config();
 connectDB();
 
@@ -27,50 +27,50 @@ console.log(`Starting server on port ${PORT}`);
 
 // Initialize Socket.IO with updated CORS settings
 const io = new Server(server, {
-  cors: {
-    origin: "*", // Allow all origins (for testing)
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
+   cors: {
+      origin: "*", // Allow all origins (for testing)
+      methods: ["GET", "POST"],
+      credentials: true,
+   },
 });
 
 // Store connected users
 const users: { [key: string]: string } = {}; // { userId: socketId }
 
 io.on("connection", (socket: Socket) => {
-  console.log("A user connected:", socket.id);
+   console.log("A user connected:", socket.id);
 
-  // **Handle user joining with userId**
-  socket.on("join", (userId: string) => {
-    users[userId] = socket.id;
-    console.log(`${userId} joined with socket ID: ${socket.id}`);
-  });
+   // **Handle user joining with userId**
+   socket.on("join", (userId: string) => {
+      users[userId] = socket.id;
+      console.log(`${userId} joined with socket ID: ${socket.id}`);
+   });
 
-  // **Handle sending messages**
-  socket.on("sendMessage", async ({ sender, receiver, content }) => {
-    try {
-      // Save message to database
-      const newMessage = new Message({ sender, receiver, content });
-      await newMessage.save();
+   // **Handle sending messages**
+   socket.on("sendMessage", async ({ sender, receiver, content }) => {
+      try {
+         // Save message to database
+         const newMessage = new Message({ sender, receiver, content });
+         await newMessage.save();
 
-      // Send message to receiver if online
-      const receiverSocketId = users[receiver];
-      if (receiverSocketId) {
-        io.to(receiverSocketId).emit("receiveMessage", newMessage);
+         // Send message to receiver if online
+         const receiverSocketId = users[receiver];
+         if (receiverSocketId) {
+            io.to(receiverSocketId).emit("receiveMessage", newMessage);
+         }
+      } catch (error) {
+         console.error("Error saving message:", error);
       }
-    } catch (error) {
-      console.error("Error saving message:", error);
-    }
-  });
+   });
 
-  // **Handle user disconnection**
-  socket.on("disconnect", () => {
-    console.log(`User disconnected: ${socket.id}`);
-    const userId = Object.keys(users).find((key) => users[key] === socket.id);
-    if (userId) {
-      delete users[userId];
-    }
-  });
+   // **Handle user disconnection**
+   socket.on("disconnect", () => {
+      console.log(`User disconnected: ${socket.id}`);
+      const userId = Object.keys(users).find((key) => users[key] === socket.id);
+      if (userId) {
+         delete users[userId];
+      }
+   });
 });
 
 // Middleware
@@ -85,17 +85,18 @@ app.use("/api/blog", blogRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/shoppingRoutes", productRoutes);
 app.use("/api/shoppingRoutes/cart", cartRoutes); // add controller name also
+app.use("/api/contact", contactRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("API is running...");
+   res.send("API is running...");
 });
 
 // Error handling middleware
 app.use((err: any, req: Request, res: Response, next: Function) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
+   console.error(err.stack);
+   res.status(500).send("Something broke!");
 });
 
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+   console.log(`Server is running on http://localhost:${PORT}`);
 });
