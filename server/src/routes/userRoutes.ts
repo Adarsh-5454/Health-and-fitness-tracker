@@ -3,6 +3,7 @@ import {
   getAllUsers,
   createUser,
   loginUser,
+  logoutUser,
 } from "../controllers/userController";
 
 const router = express.Router();
@@ -14,5 +15,7 @@ router.get("/", getAllUsers);
 router.post("/signup", createUser);
 
 router.post("/login", loginUser);
+
+router.post("/logout", logoutUser);
 
 export default router;

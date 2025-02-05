@@ -1,34 +1,111 @@
-import Button from "../../components/Button/Button";
-import Input from "../../components/Inputbox/Input";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// Keep the Button component
 
 const Login = () => {
+   const [formData, setFormData] = useState({
+      email: "",
+      password: "",
+   });
+
+   const [error, setError] = useState<string>("");
+   const [loading, setLoading] = useState<boolean>(false);
+   const navigate = useNavigate(); // React Router for navigation
+
+   // Handle input changes
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+   };
+
+   // Handle form submission
+   const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setError("");
+
+      if (!formData.email || !formData.password) {
+         setError("Both email and password are required.");
+         return;
+      }
+
+      try {
+         setLoading(true);
+         const response = await axios.post(
+            "http://localhost:5000/api/users/login",
+            formData
+         );
+
+         // Store token in localStorage
+         localStorage.setItem("token", response.data.token);
+
+         alert("Login successful!");
+         navigate("/"); // Redirect to dashboard
+      } catch (error: any) {
+         setError(
+            error.response?.data?.message || "Login failed! Please try again."
+         );
+      } finally {
+         setLoading(false);
+      }
+   };
+
    return (
       <div className="flex justify-center items-center min-h-screen">
-         <div className="w-full flex flex-col justify-center h-screen sm:h-fit sm:w-96 px-6 py-8 bg-light shadow-md bg-purple-50 rounded-lg text-center">
+         <form
+            onSubmit={handleSubmit}
+            className="w-full flex flex-col justify-center h-screen sm:h-fit sm:w-96 px-6 py-8 bg-light shadow-md bg-purple-50 rounded-lg text-center"
+         >
             <div className="w-12 h-12 bg-primary-dark rounded-full mx-auto mb-4"></div>
             <h3 className="text-2xl font-medium mb-6">Login</h3>
+
+            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+
             <div className="space-y-4">
-               <Input placeholder={"Email or phone number"} type={"text"} />
-               <Input placeholder={"Password"} type={"password"} />
+               <input
+                  name="email"
+                  placeholder="Email or phone number"
+                  type="text"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+               />
+               <input
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+               />
             </div>
+
             <div className="mt-6">
-               <Button label={"Login"} />
+               <button
+                  type="submit"
+                  disabled={loading}
+                  className={`w-full p-2 rounded-md ${
+                     loading ? "bg-gray-400" : "bg-purple-500 text-white"
+                  }`}
+               >
+                  {loading ? "Logging in..." : "Login"}
+               </button>
             </div>
+
             <div className="flex justify-between mt-4">
                <a
-                  href="####"
+                  href="#"
                   className="mb-2 text-primary-light text-sm hover:underline"
                >
                   Forgot password?
                </a>
                <a
-                  href="SignUp.html"
+                  href="/signup"
                   className="text-primary-light text-sm hover:underline"
                >
                   Don't have an account? Sign Up
                </a>
             </div>
-         </div>
+         </form>
       </div>
    );
 };

@@ -65,3 +65,14 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     res.status(400).json({ message: " Invalid request" });
   }
 };
+
+export const logoutUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    res.status(200).json({ message: "Successfully Logout" });
+  } catch (error) {
+    res.status(400).json({ message: "Invalid request" });
+  }
+};

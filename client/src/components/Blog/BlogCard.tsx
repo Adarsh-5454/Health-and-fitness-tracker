@@ -23,10 +23,8 @@ const BlogCard = ({
             </div>
             {/* text --- */}
             <div className="p-4 flex flex-col">
-               <div className="w-100 flex justify-between items-center text-red-500 text-sm">
-                  <span>
-                     {createdAt} / {category}
-                  </span>
+               <div className="w-100 flex gap-4 justify-between items-center text-red-500 text-sm">
+                  <span>{category}</span>
                   <span className="font-medium ">{author}</span>
                </div>
                <a href="#" className="text-xl font-medium text-gray-800 mt-2">
@@ -35,12 +33,15 @@ const BlogCard = ({
                <p className="text-gray-600 text-sm line-clamp-3 my-5">
                   {description}
                </p>
-               <NavLink
-                  to="/blogs/readmore"
-                  className="text-black hover:text-red-500 transition-all duration-300"
-               >
-                  Read More
-               </NavLink>
+               <div className="flex justify-between">
+                  <NavLink
+                     to="/blogs/readmore"
+                     className="text-black hover:text-red-500 transition-all duration-300"
+                  >
+                     <span> Read More</span>
+                  </NavLink>
+                  <span>{createdAt}</span>
+               </div>
             </div>
          </div>
       </>
