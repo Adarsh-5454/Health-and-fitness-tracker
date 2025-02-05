@@ -3,6 +3,7 @@ import Button from "../components/Button/Button";
 import Footer from "../components/Footer/Footer";
 import style from "../pages/Contact.module.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
    const [formData, setFormData] = useState({
@@ -30,15 +31,35 @@ const Contact = () => {
             "http://localhost:5000/api/contact/message",
             formData
          );
-         alert("Message sent successfully!");
+         // alert("Message sent successfully!");
+
+         toast.success("📝 Message sent successfully!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
       } catch (error: any) {
          setError(
             error.response?.data?.message ||
                "Message sending failed! Please try again."
          );
+         toast.error("📝 Message sending failed! Please try again.", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
       }
    };
-
    return (
       <div className="w-full">
          <div
@@ -177,6 +198,7 @@ const Contact = () => {
                   >
                      Send Message
                   </button>
+                  <ToastContainer />
                </form>
             </div>
          </div>
