@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BlogCard = ({
+   id,
    title,
    description,
    image,
@@ -9,6 +10,12 @@ const BlogCard = ({
    author,
    createdAt,
 }) => {
+   const navigate = useNavigate();
+   const handleSingleBlog = () => {
+      console.log(id);
+
+      navigate(`/blogs/${id}`);
+   };
    return (
       <>
          {/* box-1 ------------- */}
@@ -34,12 +41,14 @@ const BlogCard = ({
                   {description}
                </p>
                <div className="flex justify-between">
-                  <NavLink
-                     to="/blogs/readmore"
+                  <span
+                     onClick={handleSingleBlog}
                      className="text-black hover:text-red-500 transition-all duration-300"
                   >
-                     <span> Read More</span>
-                  </NavLink>
+                     {" "}
+                     Read More
+                  </span>
+
                   <span>{createdAt}</span>
                </div>
             </div>
