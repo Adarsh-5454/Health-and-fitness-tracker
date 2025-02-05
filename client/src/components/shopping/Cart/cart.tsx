@@ -47,7 +47,6 @@ const Cart: React.FC = () => {
     );
   };
 
-  // ✅ Corrected Total Calculations
   const totalMRP = cartItems.reduce(
     (acc, item) => acc + item.product_id.price.original * item.quantity,
     0
