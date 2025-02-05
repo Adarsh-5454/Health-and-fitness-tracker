@@ -1,19 +1,42 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
-const ProductCategory = ({ title, products }) => {
-   return (
-      <div className="px-28 ">
-         <h2 className="text-2xl font-bold uppercase text-gray-800 mb-4">
-            {title}
-         </h2>
-         <div className="flex flex-wrap justify-around">
-            {products.map((prev) => (
-               <ProductCard prev={prev} key={prev.id} />
-            ))}
-         </div>
+interface Product {
+  id: string;
+  name: string;
+  image: string;
+  price: {
+    original: number;
+    discounted: number;
+  };
+  rating: number;
+}
+
+interface ProductCategoryProps {
+  title: string;
+  products: Product[];
+}
+
+const ProductCategory: React.FC<ProductCategoryProps> = ({
+  title,
+  products,
+}) => {
+  return (
+    <div className="px-28">
+      <h2 className="text-2xl font-bold uppercase text-gray-800 mb-4">
+        {title}
+      </h2>
+      <div className="flex flex-wrap justify-around">
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))
+        ) : (
+          <p className="text-gray-500">No products available</p>
+        )}
       </div>
-   );
+    </div>
+  );
 };
 
 export default ProductCategory;

@@ -3,7 +3,7 @@ import axios from "axios";
 import ProductCategory from "./ProductCategory";
 
 interface Shopping {
-  id: number;
+  id: string;
   name: string;
   image: string;
   price: {
@@ -32,10 +32,10 @@ function ShopProduct() {
         const response = await axios.get<Shopping[]>(
           "http://localhost:5000/api/shoppingRoutes"
         );
-        setShoppings(response.data); // Store fetched products
-        console.log(response.data);
+        console.log("Fetched products:", response.data);
+        setShoppings(response.data);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching products:", error);
       }
     };
     fetchShoppingProduct();
@@ -43,10 +43,10 @@ function ShopProduct() {
 
   // Filter products by category
   const clothingProducts = shoppings.filter(
-    (product) => product.category === "Clothing"
+    (product) => product.category.toLowerCase() === "clothing"
   );
   const fitnessProducts = shoppings.filter(
-    (product) => product.category === "Fitness"
+    (product) => product.category.toLowerCase() === "fitness"
   );
 
   return (
