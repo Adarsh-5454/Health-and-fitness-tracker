@@ -12,7 +12,7 @@ const Login = () => {
 
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate(); // React Router for navigation
+  const navigate = useNavigate(); 
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,17 @@ const Login = () => {
     setError("");
 
     if (!formData.email || !formData.password) {
-      setError("Both email and password are required.");
+      // setError("Both email and password are required.");
+      toast.error("Both email and password are required.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
@@ -40,7 +50,7 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
 
       // alert("Login successful!");
-      toast.success("📝Login successfully!", {
+      toast.success("Login successfully!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -55,7 +65,7 @@ const Login = () => {
       setError(
         error.response?.data?.message || "Login failed! Please try again."
       );
-      toast.error("📝 Login failed! Please try again.", {
+      toast.error("Login failed! Please try again.", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
