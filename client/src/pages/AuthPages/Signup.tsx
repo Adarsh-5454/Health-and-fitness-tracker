@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"; // Import React Router for navigation
+import { toast, ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -32,12 +33,33 @@ const Signup = () => {
       !formData.confirmPassword
     ) {
       setError("All fields are required.");
+      toast.error("All fields are required.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
     // Check if passwords match
     else if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match!");
+      toast.error("Passwords do not match!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
       return;
     } else {
       try {
@@ -49,12 +71,32 @@ const Signup = () => {
             password: formData.password,
           }
         );
-        alert(response.data.message); // Show success message
+        // alert(response.data.message); // Show success message
+        toast.success("Signup successfully!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         navigate("/login");
       } catch (error: any) {
         setError(
           error.response?.data?.message || "Signup failed! Please try again."
         ); // Improved error handling
+        toast.error("📝Signup Error!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         console.error("Signup error:", error);
       }
     }
@@ -123,6 +165,7 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          <ToastContainer />
         </div>
 
         <div className="text-center mt-4">
