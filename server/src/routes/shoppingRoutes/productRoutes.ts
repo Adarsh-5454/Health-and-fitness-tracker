@@ -14,6 +14,8 @@ const router = express.Router();
 // Get all users
 router.get("/", getProducts);
 
+router.get("/search", searchProduct);
+
 // Get a single User
 router.get("/:id", getProductById);
 
@@ -26,5 +28,4 @@ router.patch("/:id", updateProduct);
 // update all users
 router.delete("/:id", deleteProduct);
 
-router.get("/search", searchProduct);
 export default router;

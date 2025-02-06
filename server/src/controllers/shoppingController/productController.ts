@@ -138,23 +138,28 @@ export const searchProduct = async (
   // Log the query to see how it's being received
   console.log("Search term:", searchTerm);
 
-  if (!searchTerm) {
-    res.status(400).json({ message: "Search term is required" });
+  if (!searchTerm || typeof searchTerm !== "string") {
+    res
+      .status(400)
+      .json({ message: "Search term is required and must be a string" });
     return;
   }
 
   try {
+    // Avoid accidental _id match by focusing only on 'name' and 'category'
     const result = await Product.find({
       $or: [
         { name: { $regex: searchTerm, $options: "i" } },
         { category: { $regex: searchTerm, $options: "i" } },
-       
       ],
     });
+
+    if (result.length === 0) {
+      res.status(404).json({ message: "No products found" });
+    }
+
     res.status(200).json(result);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
