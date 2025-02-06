@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom"; // Import React Router for navigation
 import { toast, ToastContainer } from "react-toastify";
 
-const Signup = () => {
+const Signup = ({ isSignedUp, setisSignedUp }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "", // Changed from 'username' to 'name' to match backend
@@ -83,6 +83,7 @@ const Signup = () => {
           theme: "light",
         });
         navigate("/login");
+        setisSignedUp(true);
       } catch (error: any) {
         setError(
           error.response?.data?.message || "Signup failed! Please try again."

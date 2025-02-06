@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProfileNav = ({
   setProfileId,
+  isLoggedIn,
+  setisLoggedIn,
 }: {
   setProfileId: (id: number) => void;
 }) => {
@@ -13,7 +16,20 @@ const ProfileNav = ({
 
   const handleLogOut = () => {
     localStorage.removeItem("token");
-    alert("Logged out successfully!");
+    // alert("Logged out successfully!");
+    setisLoggedIn(false);
+    toast.success("Logged out successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    console.log(isLoggedIn);
+
     navigate("/login");
   };
 
@@ -25,7 +41,8 @@ const ProfileNav = ({
           <Button label={"Edit "} onClick={() => handleEditProfile(0)} />
           <Button label={"Security"} onClick={() => handleEditProfile(1)} />
           <Button label={"Role"} onClick={() => handleEditProfile(2)} />
-          <Button label={"Logout"} onClick={handleLogOut} />
+          {isLoggedIn && <Button label={"Logout"} onClick={handleLogOut} />}
+          <ToastContainer />
         </div>
       </div>
     </>

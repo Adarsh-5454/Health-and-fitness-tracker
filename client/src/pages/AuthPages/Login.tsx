@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 // Keep the Button component
 
-const Login = () => {
+const Login = ({ isLoggedIn, setisLoggedIn }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -12,7 +12,7 @@ const Login = () => {
 
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const navigate = useNavigate(); // React Router for navigation
+  const navigate = useNavigate();
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,11 +25,22 @@ const Login = () => {
     setError("");
 
     if (!formData.email || !formData.password) {
-      setError("Both email and password are required.");
+      // setError("Both email and password are required.");
+      toast.error("Both email and password are required.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
     try {
+      setisLoggedIn(true);
       setLoading(true);
       const response = await axios.post(
         "http://localhost:5000/api/users/login",
@@ -40,7 +51,7 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
 
       // alert("Login successful!");
-      toast.success("📝Login successfully!", {
+      toast.success("Login successfully!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -50,12 +61,13 @@ const Login = () => {
         progress: undefined,
         theme: "light",
       });
+
       navigate("/");
     } catch (error: any) {
       setError(
         error.response?.data?.message || "Login failed! Please try again."
       );
-      toast.error("📝 Login failed! Please try again.", {
+      toast.error("Login failed! Please try again.", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
