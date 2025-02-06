@@ -23,7 +23,16 @@ const NavBarShop = ({ setMenu, menu }) => {
       </NavLink>
 
       <div className="flex items-center gap-2 sm:gap-6">
-        <FiSearch className="text-lg sm:text-3xl text-secondary-light rounded-full" />
+        <div className="w-fit flex items-center gap-2 bg-white  py-1 text-xs sm:text-lg rounded-3xl">
+          <input
+            type="text"
+            placeholder="Search"
+            className="ms-4 outline-none"
+          />
+          <button>
+            <FiSearch className="text-lg sm:text-2xl text-secondary-dark rounded-full me-2" />
+          </button>
+        </div>
 
         <FaCircleUser className="text-lg sm:text-3xl text-secondary-light rounded-full" />
         <GoHeartFill className="text-lg sm:text-3xl text-secondary-light rounded-full" />

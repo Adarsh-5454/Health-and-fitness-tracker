@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { IoIosStar } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 interface Product {
@@ -116,12 +117,16 @@ const ProductIndividualCard = () => {
           </ul>
 
           <div className="flex gap-5 mt-4">
-            <button className="py-1 px-2 sm:py-1 sm:px-5 mb-2 sm:mb-6 text-xs   md:text-lg font-bold border border-1 border-primary-dark text-white rounded-md bg-primary-dark hover:bg-secondary-light hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-purple-500">
-              Add to Cart
-            </button>
-            <button className="py-1 px-2 sm:py-1 sm:px-5 mb-2 sm:mb-6 text-xs   md:text-lg font-bold border border-1 border-primary-dark text-white rounded-md bg-primary-dark hover:bg-secondary-light hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-purple-500">
-              Back
-            </button>
+            <NavLink to="/shopping/cart">
+              <button className="py-1 px-2 sm:py-1 sm:px-5 mb-2 sm:mb-6 text-xs   md:text-lg font-bold border border-1 border-primary-dark text-white rounded-md bg-primary-dark hover:bg-secondary-light hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-purple-500">
+                Add to Cart
+              </button>
+            </NavLink>
+            <NavLink to="/shopping">
+              <button className="py-1 px-2 sm:py-1 sm:px-5 mb-2 sm:mb-6 text-xs   md:text-lg font-bold border border-1 border-primary-dark text-white rounded-md bg-primary-dark hover:bg-secondary-light hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-purple-500">
+                Back
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>
