@@ -105,3 +105,49 @@ export const deleteCart = async (
     res.status(500).json({ message: "Failed to delete cart", error });
   }
 };
+
+// Delete single cart item
+
+export const deleteCartItem = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { cartItemId } = req.params;
+
+  try {
+    // Find the cart
+    const cart = await Cart.findOne();
+    if (!cart) {
+      res.status(404).json({ message: "Cart not found" });
+      return;
+    }
+
+    // Find the index of the item to be removed
+    const itemIndex = cart.items.findIndex(
+      (item) => item.product_id.toString() === cartItemId
+    );
+
+    if (itemIndex === -1) {
+      res.status(404).json({ message: "Item not found in cart" });
+      return;
+    }
+
+    // Remove the item from the cart
+    cart.items.splice(itemIndex, 1);
+
+    // Recalculate the total price
+    cart.totalPrice = cart.items.reduce(
+      (total, item) => total + item.Price * item.quantity,
+      0
+    );
+
+    await cart.save();
+
+    res.status(200).json({
+      message: "Item deleted successfully",
+      cart,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete item from cart", error });
+  }
+};
