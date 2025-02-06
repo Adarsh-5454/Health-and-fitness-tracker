@@ -5,7 +5,9 @@ import {
   deleteProduct,
   updateProduct,
   getProductById,
+  searchProduct,
 } from "../../controllers/shoppingController/productController";
+import { uploader } from "../../controllers/shoppingController/shoppingMulter";
 
 const router = express.Router();
 
@@ -16,7 +18,7 @@ router.get("/", getProducts);
 router.get("/:id", getProductById);
 
 // Add a new user
-router.post("/", createProduct);
+router.post("/", uploader.single("image"), createProduct);
 
 // update all users
 router.patch("/:id", updateProduct);
@@ -24,4 +26,5 @@ router.patch("/:id", updateProduct);
 // update all users
 router.delete("/:id", deleteProduct);
 
+router.get("/search", searchProduct);
 export default router;

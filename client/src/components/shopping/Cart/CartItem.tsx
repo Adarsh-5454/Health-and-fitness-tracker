@@ -22,6 +22,7 @@ interface CartItemProps {
 }
 
 const CartItem: React.FC<CartItemProps> = ({ cartItem, onQuantityChange }) => {
+  
   const handleQuantityChange = (newQuantity: number) => {
     if (newQuantity > 0) {
       onQuantityChange(cartItem.id, newQuantity);

@@ -34,11 +34,14 @@ export const createProduct = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { name, image, price, rating, category, specifications } = req.body;
-
+    const { name, price, rating, category, specifications } = req.body;
+    if (!req.file) {
+      res.status(400).json({ message: "Please upload an image" });
+      return;
+    }
     const newProduct = new Product({
       name,
-      image,
+      image: req.file.filename,
       price,
       rating,
       category,
@@ -125,3 +128,33 @@ export const deleteProduct = async (
     res.status(500).json({ message: "Failed to delete product", error });
   }
 };
+
+export const searchProduct = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  const { searchTerm } = req.query;
+
+  // Log the query to see how it's being received
+  console.log("Search term:", searchTerm);
+
+  if (!searchTerm) {
+    res.status(400).json({ message: "Search term is required" });
+    return;
+  }
+
+  try {
+    const result = await Product.find({
+      $or: [
+        { name: { $regex: searchTerm, $options: "i" } },
+        { category: { $regex: searchTerm, $options: "i" } },
+       
+      ],
+    });
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
