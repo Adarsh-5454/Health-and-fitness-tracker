@@ -5,6 +5,7 @@ import { IoAddOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import SearchedBlogCard from "../components/Blog/searchedBlogCard";
+import { IoMdClose } from "react-icons/io";
 
 interface Blog {
    id: number;
@@ -17,7 +18,7 @@ interface Blog {
 }
 
 function Blogs() {
-   const [hide, setHide] = useState(true);
+   const [searchContent, setSearchContent] = useState(false);
    const [blogs, setBlogs] = useState<Blog[]>([]);
 
    useEffect(() => {
@@ -43,8 +44,6 @@ function Blogs() {
    };
 
    const handleSearch = async () => {
-      setHide(false);
-
       try {
          const response = await axios.get<Blog[]>(
             `http://localhost:5000/api/blog/search?searchTerm=${search}`
@@ -54,6 +53,10 @@ function Blogs() {
       } catch (error) {
          console.log(error);
       }
+      setSearchContent(true);
+   };
+   const handleSearchClose = () => {
+      setSearchContent(false);
    };
 
    return (
@@ -81,34 +84,43 @@ function Blogs() {
                      spellCheck="false"
                      className="border border-gray-300 outline-none bg-gray-50 text-gray-700 px-4 py-3 h-14 rounded-full flex-1 mr-4 text-lg"
                   />
-                  <button
-                     onClick={handleSearch}
-                     className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center"
-                  >
-                     <FaSearch className="text-xl" />
-                  </button>
+                  {!searchContent ? (
+                     <button
+                        onClick={handleSearch}
+                        className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center"
+                     >
+                        <FaSearch className="text-xl" />
+                     </button>
+                  ) : (
+                     <button
+                        onClick={handleSearchClose}
+                        className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center"
+                     >
+                        <IoMdClose className="text-xl" />
+                     </button>
+                  )}
                   <NavLink to="/blogs/createBlog" className="ps-2">
                      <button className="border-none outline-none bg-gray-50 rounded-full w-14 h-14 cursor-pointer  flex justify-center items-center">
                         <IoAddOutline className="text-2xl" />
                      </button>
                   </NavLink>
                </div>
-               {/* serched item container */}
-               <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
-                  {searchedBlog.map((searchedBlog) => (
-                     <SearchedBlogCard
-                        id={searchedBlog._id}
-                        title={searchedBlog.title}
-                        description={searchedBlog.description}
-                        image={`src/assets/blogs/${searchedBlog.image}`}
-                        category={searchedBlog.category}
-                        author={searchedBlog.author}
-                        createdAt={searchedBlog.createdAt}
-                     />
-                  ))}
-               </div>
-               {/* container ----------------- */}
-               {hide === true && (
+
+               {searchContent ? (
+                  <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
+                     {searchedBlog.map((searchedBlog) => (
+                        <SearchedBlogCard
+                           id={searchedBlog._id}
+                           title={searchedBlog.title}
+                           description={searchedBlog.description}
+                           image={`src/assets/blogs/${searchedBlog.image}`}
+                           category={searchedBlog.category}
+                           author={searchedBlog.author}
+                           createdAt={searchedBlog.createdAt}
+                        />
+                     ))}
+                  </div>
+               ) : (
                   <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
                      {blogs.map((blog) => (
                         <BlogCard
