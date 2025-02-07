@@ -34,7 +34,7 @@ const CartItem: React.FC<CartItemProps> = ({
   };
 
   const handleDeleteCart = () => {
-    onDelete(cartItem.product_id.id);
+    onDelete(cartItem.product_id._id);
   };
 
   return (

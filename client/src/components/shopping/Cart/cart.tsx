@@ -88,7 +88,7 @@ const Cart: React.FC = () => {
       );
 
       setCartItems((prevItems) =>
-        prevItems.filter((item) => item.product_id.id !== productId)
+        prevItems.filter((item) => item.product_id._id !== productId)
       );
     } catch (error) {
       console.error("Error deleting item:", error);
