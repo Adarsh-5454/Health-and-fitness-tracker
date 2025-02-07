@@ -47,6 +47,7 @@ const NavBarShop = ({
     setSearchContent(true);
   };
   const handleSearchClose = () => {
+    // setSearch("");
     setSearchContent(false);
   };
 
