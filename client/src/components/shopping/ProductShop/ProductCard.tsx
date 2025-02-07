@@ -2,7 +2,7 @@ import React from "react";
 import { IoIosStar } from "react-icons/io";
 import Button from "../../Button/Button";
 import { useNavigate } from "react-router-dom";
-import AddToCartButton, { handleAddtoCart } from "./addToCart";
+import AddToCartButton from "./addToCart";
 interface Product {
   id: string;
   name: string;
