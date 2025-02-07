@@ -5,7 +5,7 @@ import {
   updateCart,
   deleteCart,
   deleteCartItem,
-  //   removeFromCart,
+  updateCartQuantity, // ✅ Added this new function
 } from "../../controllers/shoppingController/cartController";
 
 const router = express.Router();
@@ -13,6 +13,7 @@ const router = express.Router();
 router.post("/", addToCart);
 router.get("/item", getCart);
 router.patch("/item/:id", updateCart);
+router.patch("/item/update/:productId", updateCartQuantity); // ✅ Route for updating quantity
 router.delete("/item/:id", deleteCart);
 router.delete("/item/delete/:cartItemId", deleteCartItem);
 

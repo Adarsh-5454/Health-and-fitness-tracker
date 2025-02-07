@@ -49,6 +49,7 @@ export const getCart = async (req: Request, res: Response): Promise<void> => {
 
     if (!cart) {
       res.status(404).json({ message: "Cart not found" });
+      return;
     }
 
     res.status(200).json(cart);
@@ -69,20 +70,63 @@ export const updateCart = async (
       new: true,
       runValidators: true,
     });
+
     if (!updatedCart) {
-      res.status(404).json({ message: "cart not found" });
+      res.status(404).json({ message: "Cart not found" });
+      return;
     }
+
     res.status(200).json({
       message: "Cart updated successfully",
       cart: updatedCart,
     });
   } catch (error) {
-    res.status(400).json({ message: "failed to update cart", error });
+    res.status(400).json({ message: "Failed to update cart", error });
   }
 };
 
-// delete cart
+// ✅ Update Cart Quantity
+export const updateCartQuantity = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { productId } = req.params;
+    const { quantity } = req.body;
 
+    // Find the cart
+    let cart = await Cart.findOne();
+    if (!cart) {
+      res.status(404).json({ message: "Cart not found" });
+      return;
+    }
+
+    // Find the item inside the cart
+    const item = cart.items.find(
+      (item) => item.product_id.toString() === productId
+    );
+
+    if (!item) {
+      res.status(404).json({ message: "Product not found in cart" });
+      return;
+    }
+
+    // Update the quantity
+    item.quantity = quantity;
+
+    // Save the updated cart
+    await cart.save();
+
+    res.status(200).json({
+      message: "Cart item updated successfully",
+      cart,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update cart item", error });
+  }
+};
+
+// ✅ Delete Entire Cart
 export const deleteCart = async (
   req: Request,
   res: Response
@@ -106,8 +150,7 @@ export const deleteCart = async (
   }
 };
 
-// Delete single cart item
-
+// ✅ Delete Single Cart Item
 export const deleteCartItem = async (
   req: Request,
   res: Response
