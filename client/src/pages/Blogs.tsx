@@ -17,6 +17,7 @@ interface Blog {
 }
 
 function Blogs() {
+   const [hide, setHide] = useState(true);
    const [blogs, setBlogs] = useState<Blog[]>([]);
 
    useEffect(() => {
@@ -42,6 +43,8 @@ function Blogs() {
    };
 
    const handleSearch = async () => {
+      setHide(false);
+
       try {
          const response = await axios.get<Blog[]>(
             `http://localhost:5000/api/blog/search?searchTerm=${search}`
@@ -68,7 +71,6 @@ function Blogs() {
                      My Blog
                   </h3>
                </div>
-
                {/* search bar */}
                <div className="mt-2 flex items-center justify-around">
                   <input
@@ -91,7 +93,6 @@ function Blogs() {
                      </button>
                   </NavLink>
                </div>
-
                {/* serched item container */}
                <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
                   {searchedBlog.map((searchedBlog) => (
@@ -106,21 +107,22 @@ function Blogs() {
                      />
                   ))}
                </div>
-
                {/* container ----------------- */}
-               <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
-                  {blogs.map((blog) => (
-                     <BlogCard
-                        id={blog._id}
-                        title={blog.title}
-                        description={blog.description}
-                        image={`src/assets/blogs/${blog.image}`}
-                        category={blog.category}
-                        author={blog.author}
-                        createdAt={blog.createdAt}
-                     />
-                  ))}
-               </div>
+               {hide === true && (
+                  <div className="flex justify-center items-center my-5 flex-wrap flex-row container">
+                     {blogs.map((blog) => (
+                        <BlogCard
+                           id={blog._id}
+                           title={blog.title}
+                           description={blog.description}
+                           image={`src/assets/blogs/${blog.image}`}
+                           category={blog.category}
+                           author={blog.author}
+                           createdAt={blog.createdAt}
+                        />
+                     ))}
+                  </div>
+               )}
             </section>
          </div>
       </>
