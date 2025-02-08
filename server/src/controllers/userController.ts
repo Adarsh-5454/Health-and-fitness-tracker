@@ -27,6 +27,7 @@ export const createUser = async (
     const user = await User.signup(name, email, password);
 
     res.status(201).json({
+      userId: user._id,
       message: "User created successfully",
       user,
     });
@@ -57,6 +58,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
         }
       );
       res.status(200).json({
+        userId: user._id,
         message: "Logged in successfully",
         token,
       });
@@ -74,5 +76,61 @@ export const logoutUser = async (
     res.status(200).json({ message: "Successfully Logout" });
   } catch (error) {
     res.status(400).json({ message: "Invalid request" });
+  }
+};
+
+export const updateUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    const userid = await User.findById(id);
+
+    if (!user) {
+      res.status(400).json({ message: "User not found" });
+    } else {
+      // Validate input
+      if (!email && password === undefined) {
+        res.status(400).json({
+          message: "At least one field is required to update.",
+        });
+      }
+
+      // Find and update user
+
+      let updateField: any = {};
+      if (password) {
+        updateField.password = bcrypt.hashSync(password, 10);
+      }
+      if (email) {
+        updateField.email = email;
+      }
+
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { $set: updateField },
+        { new: true, runValidators: true }
+      );
+
+      // If user not found
+      if (!updatedUser) {
+        res.status(404).json({ message: "User not found." });
+      }
+
+      res.status(200).json({
+        message: "User updated successfully",
+        user: updatedUser,
+      });
+    }
+  } catch (error: any) {
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message,
+    });
   }
 };
