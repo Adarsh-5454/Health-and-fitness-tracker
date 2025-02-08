@@ -27,6 +27,7 @@ export const createUser = async (
       const user = await User.signup(name, email, password);
 
       res.status(201).json({
+         userId:user._id,
          message: "User created successfully",
          user,
       });
@@ -56,10 +57,13 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
                expiresIn: "1h",
             }
          );
-         res.status(200).json({
-            message: "Logged in successfully",
-            token,
-         });
+         res
+           .status(200)
+           .json({
+             userId: user._id,
+             message: "Logged in successfully",
+             token,
+           });
       }
    } catch (error) {
       res.status(400).json({ message: " Invalid request" });
