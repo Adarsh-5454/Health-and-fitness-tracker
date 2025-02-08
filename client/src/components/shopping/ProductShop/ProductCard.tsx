@@ -24,6 +24,9 @@ const ProductCard: React.FC<{ product: Product; id: string }> = ({
     navigate(`/shopping/${id}`);
     console.log(id);
   };
+  const discount = Math.round(
+    (product.price.discounted / product.price.original) * 100
+  );
   return (
     <div className=" flex flex-col rounded-lg overflow-hidden hover:scale-105 transform transition-transform duration-200 w-60 p-5 m-2">
       <div onClick={handleProduct}>
@@ -40,13 +43,14 @@ const ProductCard: React.FC<{ product: Product; id: string }> = ({
         <span className="font-bold text-lg text-gray-800 truncate px-2">
           {product.name}
         </span>
-        <div className="flex gap-5 items-center px-2 my-2">
+        <div className="flex gap-5 items-center px-2 my-2 ">
           <span className="text-lg text-primary-dark">
             ₹{product.price.discounted}
           </span>
           <span className="text-sm text-gray-500 line-through">
             ₹{product.price.original}
           </span>
+          <span className="text-green-500">{discount}% off</span>
         </div>
       </div>
       <AddToCartButton id={id} />

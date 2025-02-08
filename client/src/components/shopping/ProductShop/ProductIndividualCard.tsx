@@ -51,7 +51,9 @@ const ProductIndividualCard = () => {
   if (loading) return <p className="text-center mt-10">Loading...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
   if (!product) return <p className="text-center mt-10">product not found.</p>;
-
+  const discount = Math.round(
+    (product.price.discounted / product.price.original) * 100
+  );
   return (
     <div className="md:w-[1000px] mx-auto px:4 md:px-16 md:mt-16 shadow-lg pb-5">
       <h2 className="text-primary-dark text-3xl font-bold text-center">
@@ -74,13 +76,14 @@ const ProductIndividualCard = () => {
             </span>
           </div>
           {/* <p className="text-gray-700 my-4">desc</p> */}
-          <div className="flex items-center my-4">
+          <div className="flex items-center justify-evenly w-52 my-4">
             <p className="text-2xl font-bold mr-6">
               ₹{product.price.discounted}
             </p>
             <p className="line-through text-gray-500">
               ₹{product.price.original}
             </p>
+            <p className=" text-green-500">{discount}% off.</p>
           </div>
           <h4 className="text-xl font-semibold mb-2">Specifications:</h4>
           <ul className="list-disc list-none pl-4">
