@@ -1,9 +1,10 @@
 import express from "express";
 import {
-  getAllUsers,
-  createUser,
-  loginUser,
-  logoutUser,
+   getAllUsers,
+   createUser,
+   loginUser,
+   logoutUser,
+   updateUser,
 } from "../controllers/userController";
 
 const router = express.Router();
@@ -18,4 +19,5 @@ router.post("/login", loginUser);
 
 router.post("/logout", logoutUser);
 
+router.patch("/:id", updateUser);
 export default router;
