@@ -104,13 +104,16 @@ const ProductIndividualCard = () => {
                 : {product.specifications.color}
               </span>
             </li>
-            <li className="text-base font-medium text-stone-600 flex gap-4">
-              <span className="w-24"> Sleeve</span>
+            {product.specifications.sleeve && (
+              <li className="text-base font-medium text-stone-600 flex gap-4">
+                <span className="w-24"> Sleeve</span>
 
-              <span className="font-normal">
-                : {product.specifications.sleeve}
-              </span>
-            </li>
+                <span className="font-normal">
+                  : {product.specifications.sleeve}
+                </span>
+              </li>
+            )}
+
             <li className="text-base font-medium text-stone-600 flex gap-4">
               <span className="w-24">Size</span>
 
