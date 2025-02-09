@@ -14,12 +14,13 @@ interface Product {
   rating: number;
 }
 
-const Shopping = ({ setMenu, menu }) => {
+const Shopping = ({ setMenu, menu, isLoggedIn }) => {
   const [searchedProduct, setSearchedProduct] = useState<Product[]>([]);
   const [searchContent, setSearchContent] = useState(false);
   return (
     <div>
       <NavBarShop
+        isLoggedIn={isLoggedIn}
         setMenu={setMenu}
         menu={menu}
         searchedProduct={searchedProduct}

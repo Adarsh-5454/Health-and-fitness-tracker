@@ -64,7 +64,7 @@ const Login = ({ isLoggedIn, setisLoggedIn }) => {
         theme: "light",
       });
 
-      navigate("/");
+      navigate("/ ");
     } catch (error: any) {
       setError(
         error.response?.data?.message || "Login failed! Please try again."

@@ -27,6 +27,7 @@ const NavBarShop = ({
   setSearchedProduct,
   searchContent,
   setSearchContent,
+  isLoggedIn,
 }) => {
   const [search, setSearch] = useState("");
 
@@ -83,7 +84,21 @@ const NavBarShop = ({
           )}
         </div>
 
-        <FaCircleUser className="text-lg sm:text-3xl text-secondary-light rounded-full" />
+        {isLoggedIn ? (
+          <NavLink
+            to="/profile"
+            className="text-black hover:text-red-500 transition-all duration-300"
+          >
+            <FaCircleUser className="text-xl text-secondary-light rounded-full md:text-3xl" />
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            className="text-black hover:text-red-500 transition-all duration-300"
+          >
+            <FaCircleUser className="text-xl text-secondary-light rounded-full md:text-3xl" />
+          </NavLink>
+        )}
         <GoHeartFill className="text-lg sm:text-3xl text-secondary-light rounded-full" />
         <NavLink to="/shopping/cart">
           <FaShoppingCart className="text-lg sm:text-3xl text-secondary-light rounded-full" />

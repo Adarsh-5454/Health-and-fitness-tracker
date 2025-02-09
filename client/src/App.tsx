@@ -24,63 +24,59 @@ import Doctorlist from "./components/Chat/Doctorlist";
 import ProductIndividualCard from "./components/shopping/ProductShop/ProductIndividualCard";
 
 function App() {
-   const [menu, setMenu] = useState(false);
-   const [isLoggedIn, setisLoggedIn] = useState(false);
-   const [isSignedUp, setisSignedUp] = useState(false);
-   return (
-      <Router>
-         <Navbar setMenu={setMenu} menu={menu} />
-         {menu && <Sidebar />}
-         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-               path="/login"
-               element={
-                  <Login
-                     isLoggedIn={isLoggedIn}
-                     setisLoggedIn={setisLoggedIn}
-                     isSignedUp={isSignedUp}
-                  />
-               }
+  const [menu, setMenu] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const [isSignedUp, setisSignedUp] = useState(false);
+  return (
+    <Router>
+      <Navbar setMenu={setMenu} menu={menu} isLoggedIn={isLoggedIn} />
+      {menu && <Sidebar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/login"
+          element={
+            <Login
+              isLoggedIn={isLoggedIn}
+              setisLoggedIn={setisLoggedIn}
+              isSignedUp={isSignedUp}
             />
-            <Route
-               path="/signup"
-               element={
-                  <Signup
-                     isSignedUp={isSignedUp}
-                     setisSignedUp={setisSignedUp}
-                  />
-               }
-            />
-            <Route path="/contact" element={<Contact />} />
-            <Route
-               path="/profile"
-               element={
-                  <Profile
-                     isLoggedIn={isLoggedIn}
-                     setisLoggedIn={setisLoggedIn}
-                  />
-               }
-            />
-            <Route path="/chats" element={<Chats />} />
-            <Route path="/chats/message" element={<Chatlayout />} />
-            <Route path="/chats/individualmessage" element={<Chatpage />} />
-            <Route path="/chats/appoinment" element={<Doctorlist />} />
-            <Route
-               path="/shopping"
-               element={<Shopping setMenu={setMenu} menu={menu} />}
-            />
-            <Route path="/shopping/cart" element={<CartElement />} />
-            <Route path="/shopping/:id" element={<ProductIndividualCard />} />
-            <Route path="/workouts" element={<Workouts />} />
-            <Route path="/diets" element={<Diets />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/blogs/:id" element={<SingleBlog />} />
-            <Route path="/blogs/createblog" element={<CreateBlog />} />
-            <Route path="*" element={<NotFound />} />
-         </Routes>
-      </Router>
-   );
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Signup isSignedUp={isSignedUp} setisSignedUp={setisSignedUp} />
+          }
+        />
+        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/profile"
+          element={
+            <Profile isLoggedIn={isLoggedIn} setisLoggedIn={setisLoggedIn} />
+          }
+        />
+        <Route path="/chats" element={<Chats />} />
+        <Route path="/chats/message" element={<Chatlayout />} />
+        <Route path="/chats/individualmessage" element={<Chatpage />} />
+        <Route path="/chats/appoinment" element={<Doctorlist />} />
+        <Route
+          path="/shopping"
+          element={
+            <Shopping setMenu={setMenu} menu={menu} isLoggedIn={isLoggedIn} />
+          }
+        />
+        <Route path="/shopping/cart" element={<CartElement />} />
+        <Route path="/shopping/:id" element={<ProductIndividualCard />} />
+        <Route path="/workouts" element={<Workouts />} />
+        <Route path="/diets" element={<Diets />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<SingleBlog />} />
+        <Route path="/blogs/createblog" element={<CreateBlog />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
