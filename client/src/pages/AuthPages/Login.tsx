@@ -46,6 +46,8 @@ const Login = ({ isLoggedIn, setisLoggedIn }) => {
         "http://localhost:5000/api/users/login",
         formData
       );
+      const userId = response.data.userId;
+      console.log(userId);
 
       // Store token in localStorage
       localStorage.setItem("token", response.data.token);

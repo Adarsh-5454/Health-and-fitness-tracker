@@ -40,7 +40,7 @@ const ProfileNav = ({
         <div className="w-fit flex sm:flex-col gap-5 mx-auto sm:w-full sm:w-full">
           <Button label={"Edit "} onClick={() => handleEditProfile(0)} />
           <Button label={"Security"} onClick={() => handleEditProfile(1)} />
-          <Button label={"Role"} onClick={() => handleEditProfile(2)} />
+          {/* <Button label={"Role"} onClick={() => handleEditProfile(2)} /> */}
           {isLoggedIn && <Button label={"Logout"} onClick={handleLogOut} />}
           <ToastContainer />
         </div>
