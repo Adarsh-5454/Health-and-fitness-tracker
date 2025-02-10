@@ -39,7 +39,7 @@ const Testimonials = () => {
       <h2 className="text-secondary-dark font-bold text-center mb-8 text-3xl md:text-4xl lg:text-5xl">
         TESTIMONIALS
       </h2>
-      <div className="flex flex-wrap justify-around md:justify-center lg:justify-around gap-4">
+      <div className="flex flex-wrap justify-around md:justify-center lg:justify-around gap-4 px-3 md:px-16">
         {testimonials.map(({ id, imgUrl, name, description }) => (
           <div
             key={id}

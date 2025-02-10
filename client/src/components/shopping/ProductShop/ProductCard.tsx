@@ -43,7 +43,7 @@ const ProductCard: React.FC<{ product: Product; id: string }> = ({
             <span className="font-bold text-lg text-gray-800 truncate px-2">
                {product.name}
             </span>
-            <div className="flex gap-5 items-center ps- py-1 md:py-2 ">
+            <div className="flex gap-5 items-center  py-1 md:py-2 px-0 md:px-2 ">
                <span className="text-lg text-primary-dark">
                   ₹{product.price.discounted}
                </span>
