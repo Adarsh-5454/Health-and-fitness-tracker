@@ -1,13 +1,22 @@
+import { NavLink } from "react-router-dom";
 import FooterHeading from "./FooterHeading";
 
 const FooterLinks = () => {
   return (
     <div>
       <FooterHeading title="Useful LInks" />
-      <p>Home</p>
-      <p>About Us</p>
-      <p>Services</p>
-      <p>Terms of Service</p>
+      <NavLink to="/">
+        <p>Home</p>{" "}
+      </NavLink>
+      <NavLink to="/contact">
+        <p>Contact US</p>{" "}
+      </NavLink>
+      <NavLink to="/">
+        <p>Services</p>{" "}
+      </NavLink>
+      <NavLink to="/">
+        <p>Terms and Conditions</p>{" "}
+      </NavLink>
     </div>
   );
 };
