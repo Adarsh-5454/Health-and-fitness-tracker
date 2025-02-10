@@ -55,10 +55,10 @@ const NavBarShop = ({
   return (
     <div className="w-full z-10 sticky top-0 py-1 sm:py-4 bg-primary-dark flex justify-between px-4 sm:px-24">
       <NavLink to="/shopping">
-        <div className="flex items-center gap-2 sm:gap-6">
+        <div className="flex items-center gap-2 sm:gap-6 py-4 md:py-0">
           <NavMenu setMenu={setMenu} menu={menu} />
-          <div className="w-4 h-4 sm:w-8 sm:h-8 bg-secondary-light rounded-full"></div>
-          <h3 className="font-bold text-base sm:text-xl text-primary-light">
+          <div className=" w-6 h-6  md:w-4 md:h-4  sm:w-8 sm:h-8 bg-secondary-light rounded-full"></div>
+          <h3 className="font-bold hidden md:block   text-base sm:text-xl text-primary-light">
             FIT MAESTRO
           </h3>
         </div>
@@ -71,15 +71,15 @@ const NavBarShop = ({
             value={search}
             type="text"
             placeholder="Search"
-            className="ms-4 outline-none"
+            className="ms-4 outline-none w-32 md:w-full "
           />
           {!searchContent ? (
             <button onClick={handleSearch}>
-              <FiSearch className="text-lg sm:text-2xl text-secondary-dark rounded-full me-2" />
+              <FiSearch className="text-xl md:text-2xl text-secondary-dark rounded-full me-2" />
             </button>
           ) : (
             <button onClick={handleSearchClose}>
-              <IoMdClose className="text-lg sm:text-2xl text-secondary-dark rounded-full me-2" />
+              <IoMdClose className="text-xl md:text-2xl text-secondary-dark rounded-full me-2" />
             </button>
           )}
         </div>
@@ -99,9 +99,8 @@ const NavBarShop = ({
             <FaCircleUser className="text-xl text-secondary-light rounded-full md:text-3xl" />
           </NavLink>
         )}
-        <GoHeartFill className="text-lg sm:text-3xl text-secondary-light rounded-full" />
         <NavLink to="/shopping/cart">
-          <FaShoppingCart className="text-lg sm:text-3xl text-secondary-light rounded-full" />
+          <FaShoppingCart className="text-xl md:text-3xl text-secondary-light rounded-full" />
         </NavLink>
       </div>
     </div>
