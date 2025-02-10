@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, Mongoose } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 interface ICartItem {
   product_id: mongoose.Schema.Types.ObjectId;
@@ -8,6 +8,7 @@ interface ICartItem {
 }
 
 export interface ICart extends Document {
+  user: mongoose.Schema.Types.ObjectId; // Added user field
   items: ICartItem[];
   totalPrice: number;
 }
@@ -29,6 +30,11 @@ const cartItemSchema: Schema = new Schema({
 
 const cartSchema: Schema = new Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true, // Ensures each cart is linked to a user
+    },
     items: {
       type: [cartItemSchema],
       validate: {
