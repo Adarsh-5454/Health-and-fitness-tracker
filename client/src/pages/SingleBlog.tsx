@@ -20,7 +20,7 @@ const SingleBlog = () => {
       const fetchBlog = async () => {
          try {
             const response = await axios.get(
-               `http://localhost:5000/api/blog/single/${id}`
+               `http://localhost:5000/api/blogs/single/${id}`
             );
             setBlog(response.data.singleBlog);
          } catch (err: any) {
