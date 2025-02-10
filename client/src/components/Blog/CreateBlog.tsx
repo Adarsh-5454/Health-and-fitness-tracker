@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
+import { toast, ToastContainer } from "react-toastify";
 
 const CreateBlog = () => {
    const [form, setForm] = useState({
@@ -51,9 +52,29 @@ const CreateBlog = () => {
          );
 
          console.log("Blog created:", response.data);
-         alert("Blog created successfully!");
+         // alert("Blog created successfully!");
+         toast.success("Blog created successfully!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
       } catch (error) {
          console.error("Error creating blog:", error);
+         toast.error("Error creating blog!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
       }
    };
 
@@ -122,6 +143,7 @@ const CreateBlog = () => {
                      </NavLink>
                   </div>
                </form>
+               <ToastContainer />
             </div>
          </div>
       </>
