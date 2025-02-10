@@ -22,11 +22,11 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
    products,
 }) => {
    return (
-      <div className="px-28">
-         <h2 className="text-2xl font-bold uppercase text-gray-800 mb-4">
+      <div className="px-2 md:px-28">
+         <h2 className="text-2xl font-bold uppercase text-gray-800 mt-4 mb-4">
             {title}
          </h2>
-         <div className="flex flex-wrap justify-around">
+         <div className="flex flex-wrap ">
             {products.length > 0 ? (
                products.map((product) => (
                   <ProductCard

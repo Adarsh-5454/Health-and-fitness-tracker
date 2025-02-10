@@ -51,7 +51,7 @@ function ShopProduct() {
    );
 
    return (
-      <div className="space-y-6">
+      <div className="">
          <ProductCategory title="Clothing" products={clothingProducts} />
          <ProductCategory title="Fitness" products={fitnessProducts} />
          <ToastContainer />
