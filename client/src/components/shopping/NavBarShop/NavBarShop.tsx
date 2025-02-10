@@ -54,15 +54,17 @@ const NavBarShop = ({
 
   return (
     <div className="w-full z-10 sticky top-0 py-1 sm:py-4 bg-primary-dark flex justify-between px-4 sm:px-24">
-      <NavLink to="/shopping">
-        <div className="flex items-center gap-2 sm:gap-6 py-4 md:py-0">
-          <NavMenu setMenu={setMenu} menu={menu} />
-          <div className=" w-6 h-6  md:w-4 md:h-4  sm:w-8 sm:h-8 bg-secondary-light rounded-full"></div>
+      <div className="flex items-center gap-2 sm:gap-6 py-4 md:py-0">
+        <NavMenu setMenu={setMenu} menu={menu} />
+        <NavLink to="/">
+          <div className=" w-6 h-6 sm:w-8 sm:h-8 bg-secondary-light rounded-full"></div>
+        </NavLink>
+        <NavLink to="/shopping">
           <h3 className="font-bold hidden md:block   text-base sm:text-xl text-primary-light">
             FIT MAESTRO
           </h3>
-        </div>
-      </NavLink>
+        </NavLink>
+      </div>
 
       <div className="flex items-center gap-2 sm:gap-6">
         <div className="w-fit flex items-center gap-2 bg-white py-1 text-xs sm:text-lg rounded-3xl">
