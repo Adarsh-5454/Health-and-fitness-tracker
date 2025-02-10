@@ -76,7 +76,7 @@ app.use(express.json());
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/profile", profileRoutes);
-app.use("/api/blog", blogRoutes);
+app.use("/api/blogs", blogRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/shoppingRoutes", productRoutes);
 app.use("/api/shoppingRoutes/cart", cartRoutes);
