@@ -23,14 +23,13 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState("");
   const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     socket.emit("join", userId);
 
-    socket.on("updateUsers", (users: string[]) => {
-      setOnlineUsers(users);
-    });
+    socket.on("updateUsers", (users: string[]) => setOnlineUsers(users));
 
     const handleReceiveMessage = (message: Message) => {
       setMessages((prev) => [...prev, message]);
@@ -64,22 +63,37 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-purple-300 via-violet-200 to-pink-300">
-      {/* Sidebar - People List */}
-      <div className="w-1/3 bg-white border-r border-gray-300 shadow-lg rounded-l-xl">
-        <h2 className="text-2xl font-semibold p-6 text-gray-700">Chats</h2>
-        <div className="overflow-y-auto h-full">
+      {/* Sidebar - User List */}
+      <div
+        className={`absolute inset-y-0 left-0 w-64 bg-white border-r border-gray-300 shadow-lg transform ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } md:relative md:translate-x-0 md:w-1/3 transition-transform duration-300`}
+      >
+        <div className="flex justify-between items-center p-4 border-b border-gray-300">
+          <h2 className="text-2xl font-semibold text-gray-700">Chats</h2>
+          <button
+            className="md:hidden text-gray-600"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            ❌
+          </button>
+        </div>
+        <div className="overflow-y-auto h-[calc(100vh-60px)]">
           {allUsers.map((user) => (
             <div
               key={user.id}
-              className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-violet-200 hover:text-white transition-all rounded-xl ${
+              className={`flex items-center gap-3 p-4 cursor-pointer hover:bg-violet-200 transition-all rounded-xl ${
                 selectedUser?.id === user.id ? "bg-violet-900 text-white" : ""
               }`}
-              onClick={() => setSelectedUser(user)}
+              onClick={() => {
+                setSelectedUser(user);
+                setIsSidebarOpen(false);
+              }}
             >
               <img
                 src={user.avatar}
                 alt={user.name}
-                className="w-14 h-14 rounded-full border-2 border-purple-400"
+                className="w-12 h-12 rounded-full border-2 border-purple-400"
               />
               <span className="text-lg font-semibold">{user.name}</span>
               {onlineUsers.includes(user.id) && (
@@ -91,15 +105,21 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
       </div>
 
       {/* Chat Section */}
-      <div className="w-2/3 flex flex-col">
+      <div className="w-full md:w-2/3 flex flex-col">
         {selectedUser ? (
           <>
             {/* Chat Header */}
-            <div className="mt-12 bg-white p-6 flex items-center gap-4 border-b border-gray-300 shadow-md rounded-t-xl">
+            <div className="p-4 flex items-center mt-14 gap-4 bg-white border-b border-gray-300 shadow-md">
+              <button
+                className="md:hidden text-gray-600"
+                onClick={() => setIsSidebarOpen(true)}
+              >
+                📋
+              </button>
               <img
                 src={selectedUser.avatar}
                 alt={selectedUser.name}
-                className="w-14 h-14 rounded-full border-2 border-purple-400"
+                className="w-12 h-12 rounded-full border-2 border-purple-400"
               />
               <div>
                 <h2 className="font-semibold text-xl text-gray-800">
@@ -112,15 +132,15 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-6 bg-gray-100">
+            <div className="flex-1 overflow-y-auto p-4 bg-gray-100">
               {messages.map((msg, index) => (
                 <div
                   key={index}
-                  className={`p-4 rounded-lg max-w-md shadow-lg ${
+                  className={`p-3 rounded-lg max-w-xs shadow-md ${
                     msg.sender === userId
                       ? "bg-purple-800 text-white ml-auto"
                       : "bg-white text-black border border-gray-300"
-                  } mb-4`}
+                  } mb-3`}
                 >
                   {msg.content}
                 </div>
@@ -129,10 +149,10 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
             </div>
 
             {/* Message Input */}
-            <div className="flex p-6 bg-white border-t border-gray-300 items-center shadow-md rounded-b-xl">
+            <div className="flex p-4 bg-white border-t border-gray-300 items-center shadow-md">
               <input
                 type="text"
-                className="flex-1 p-4 border-2 border-purple-400 rounded-full focus:outline-none text-gray-700"
+                className="flex-1 p-3 border border-purple-400 rounded-full focus:outline-none text-gray-700"
                 placeholder="Type a message..."
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
@@ -140,7 +160,7 @@ const ChatApp: React.FC<{ userId: string }> = ({ userId }) => {
               />
               <button
                 onClick={sendMessage}
-                className="ml-4 bg-purple-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-purple-700 transition"
+                className="ml-3 bg-purple-600 text-white px-5 py-2 rounded-full shadow-md hover:bg-purple-700 transition"
               >
                 Send
               </button>
