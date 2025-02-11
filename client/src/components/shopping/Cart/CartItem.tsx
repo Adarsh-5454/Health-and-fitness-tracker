@@ -43,7 +43,7 @@ const CartItem: React.FC<CartItemProps> = ({
             {/* Product Image */}
             <div className="w-20 h-20 sm:w-36 sm:h-36 rounded-lg border border-gray-200  overflow-hidden">
                <img
-                  src={`src/assets/shopping/${cartItem.product_id?.image}`}
+                  src={`/src/assets/shopping/${cartItem.product_id?.image}`}
                   alt={cartItem.product_id?.name || "Product Image"}
                   className="w-full h-full object-cover  rounded sm:rounded-lg"
                />
