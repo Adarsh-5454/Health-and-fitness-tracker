@@ -23,12 +23,12 @@ const SingleBlog = () => {
                `http://localhost:5000/api/blogs/single/${id}`
             );
             setBlog(response.data.singleBlog);
+            console.log(blog);
          } catch (err: any) {
             setError(err.response?.data?.message || "Error fetching blog");
          } finally {
             setLoading(false);
          }
-         console.log(blog);
       };
 
       fetchBlog();
@@ -41,8 +41,8 @@ const SingleBlog = () => {
    return (
       <div className="max-w-[800px] mx-auto mt-20 bg-white rounded-lg shadow-lg overflow-hidden style">
          <img
-            alt="blog"
-            src="http://thewowstyle.com/wp-content/uploads/2015/01/nature-images-6.jpg"
+            alt={blog.title}
+            src={`/src/assets/blogs/${blog.image}`}
             className="w-full h-[400px]"
          />
          <h3 className="text-3xl text-gray-800 my-5 text-center">

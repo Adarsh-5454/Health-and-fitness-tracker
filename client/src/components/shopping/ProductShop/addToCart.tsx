@@ -35,7 +35,7 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({ id }) => {
       } catch (error) {
          console.error("Failed to add item to cart:", error);
          // alert("Could not add item to cart.");
-         toast.error("Item added to cart!", {
+         toast.error("Failed to add item to cart!", {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
