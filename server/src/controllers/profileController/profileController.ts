@@ -2,62 +2,80 @@ import { Request, Response } from "express";
 import Profile, { IProfile } from "../../models/profileModel/profile";
 import User from "../../models/User";
 
-export const createProfile = async (
+export const getProfileDetails = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    const { userId, fullName, dob, address, city, state, pincode } = req.body;
+    const { userId } = req.params;
 
-    // Validation: Check if all required fields are present
-    if (
-      !userId ||
-      !fullName ||
-      !dob ||
-      !address ||
-      !city ||
-      !state ||
-      !pincode
-    ) {
-      res.status(400).json({ message: "Please fill all the fields" });
-      return; // Stop execution after response
+    // Find user details
+    const user = await User.findById(userId).select("name email");
+
+    if (!user) {
+      res.status(404).json({ message: "User not found" });
+      return;
     }
 
-    //check if user exist
+    // Find profile details
+    const profile = await Profile.findOne({ userId });
+
+    res.status(200).json({ user, profile });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching profile details", error });
+  }
+};
+
+/**
+ * Update user details and profile details
+ */ export const updateProfile = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const { userId } = req.params;
+    const { dob, address, city, state, country, pincode } = req.body;
+
+    // Check if user exists
     const user = await User.findById(userId);
     if (!user) {
       res.status(404).json({ message: "User not found" });
       return;
     }
 
-    // Check if profile already exists
-    const existingProfile = await Profile.findOne({ userId });
-    if (existingProfile) {
-      res.status(400).json({ message: "Email is already in use" });
-      return;
+    // Check if profile exists
+    let profile = await Profile.findOne({ userId });
+
+    if (!profile) {
+      // Create new profile if not found
+      profile = new Profile({
+        userId,
+        dob,
+        address,
+        city,
+        state,
+        country,
+        pincode,
+      });
+    } else {
+      // Update existing profile
+      profile.dob = dob;
+      profile.address = address;
+      profile.city = city;
+      profile.state = state;
+      profile.country = country;
+      profile.pincode = pincode;
     }
 
-    // Create and save profile
-    const newProfile: IProfile = new Profile({
-      userId,
-      fullName,
-      dob,
-      address,
-      city,
-      state,
-      pincode,
-    });
+    // Save profile
+    const updatedProfile = await profile.save();
 
-    const savedProfile = await newProfile.save();
-    res.status(201).json({
-      message: "Profile created successfully",
-      profile: savedProfile,
+    res.status(200).json({
+      message: "Profile updated successfully",
+      profile: updatedProfile,
     });
-  } catch (error: any) {
-    res.status(500).json({
-      message: "Error creating profile",
-      error: error.message,
-    });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating profile", error });
   }
 };
 

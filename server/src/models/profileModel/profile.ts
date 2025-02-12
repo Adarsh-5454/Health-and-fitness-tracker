@@ -1,28 +1,28 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Types } from "mongoose";
 
 export interface IProfile extends Document {
-  userId: mongoose.Schema.Types.ObjectId;
-  fullName: string;
+  userId: Types.ObjectId; // Fixed type
   dob: Date;
   address: string;
   city: string;
   state: string;
+  country: string;
   pincode: number;
 }
 
-const profileSchema: Schema = new Schema({
+const profileSchema = new Schema<IProfile>({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
     unique: true,
   },
-  fullName: { type: String, required: true },
-  dob: { type: Date, required: true },
-  address: { type: String, required: true },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  pincode: { type: Number, required: true },
+  dob: { type: Date }, // Fixed type to Date
+  address: { type: String },
+  city: { type: String },
+  state: { type: String },
+  country: { type: String },
+  pincode: { type: Number },
 });
 
 const Profile = mongoose.model<IProfile>("Profile", profileSchema);
