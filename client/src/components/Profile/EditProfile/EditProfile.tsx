@@ -41,7 +41,7 @@ const EditProfile = () => {
         return;
       }
       const response = await axios.put(
-        http://localhost:5000/api/profile/${userid},
+        ` http://localhost:5000/api/profile/${userid}`,
         formData
       );
       alert("success");
