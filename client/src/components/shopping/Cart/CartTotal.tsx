@@ -1,16 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface CartTotalProps {
   totalMRP: number;
   totalDiscount: number;
   totalPayable: number;
+  cartId: string;
 }
 
 const CartTotal: React.FC<CartTotalProps> = ({
   totalMRP,
+  cartId,
   totalDiscount,
   totalPayable,
 }) => {
+  const navigate = useNavigate();
+
+  const handleConfirmOrder = () => {
+    navigate(`/orders/create?cartId=${cartId}`);
+  };
   return (
     <div className="mt-3 w-full sm:w-1/4 max-w-md mx-auto">
       <div className="border border-gray-200 rounded-lg p-4 shadow-sm">
@@ -30,7 +38,10 @@ const CartTotal: React.FC<CartTotalProps> = ({
               ₹{totalPayable.toFixed(2)}
             </span>
           </div>
-          <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded">
+          <button
+            className="mt-4 w-full bg-blue-500 text-white py-2 rounded"
+            onClick={handleConfirmOrder}
+          >
             Confirm Order
           </button>
         </div>

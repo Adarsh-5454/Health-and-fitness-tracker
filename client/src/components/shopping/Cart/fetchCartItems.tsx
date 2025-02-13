@@ -10,26 +10,25 @@ interface Product {
   };
 }
 
-interface CartItemType {
+export interface CartItemType {
   id: string;
   product_id: Product;
   quantity: number;
 }
 
-export const fetchCartItems = async (): Promise<CartItemType[]> => {
+interface CartType {
+  _id: string;
+  items: CartItemType[];
+}
+
+export const fetchCartItems = async (): Promise<CartType> => {
   try {
-    const response = await axios.get<{ items: CartItemType[] }>(
+    const response = await axios.get(
       "http://localhost:5000/api/shoppingRoutes/cart/item"
     );
-
-    if (response.data && Array.isArray(response.data.items)) {
-      return response.data.items;
-    } else {
-      console.error("Invalid API response:", response.data);
-      return [];
-    }
+    return response.data;
   } catch (error) {
     console.error("Error fetching cart items:", error);
-    return [];
+    throw error; // This will be caught in `getCartItems`
   }
 };

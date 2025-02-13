@@ -1,148 +1,140 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import CartTotal from "./CartTotal";
-import { fetchCartItems } from "./fetchCartItems";
-import axios from "axios";
 
 interface Product {
-   id: string;
-   name: string;
-   image: string;
-   price: {
-      original: number;
-      discounted: number;
-   };
+  _id: string;
+  name: string;
+  image: string;
+  price: {
+    original: number;
+    discounted: number;
+  };
 }
 
 interface CartItemType {
-   id: string;
-   product_id: Product;
-   quantity: number;
+  _id: string;
+  product_id: Product;
+  quantity: number;
 }
 
 const Cart: React.FC = () => {
-   const [cartItems, setCartItems] = useState<CartItemType[]>([]);
-   const [loading, setLoading] = useState<boolean>(true);
-   const [error, setError] = useState<string | null>(null);
+  const [cartItems, setCartItems] = useState<CartItemType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [cartId, setCartId] = useState<string>("");
+  const navigate = useNavigate();
 
-   // ✅ Fetch Cart Items
-   useEffect(() => {
-      const getCartItems = async () => {
-         try {
-            setLoading(true);
-            const items = await fetchCartItems();
-            if (items) {
-               // ✅ Remove items where `product_id` is null
-               setCartItems(items.filter((item) => item.product_id !== null));
-            }
-         } catch (error) {
-            setError("Failed to fetch cart items.");
-            console.error("Error fetching cart items:", error);
-         } finally {
-            setLoading(false);
-         }
-      };
-      getCartItems();
-   }, []);
-
-   // ✅ Update Quantity
-   const handleQuantityChange = async (
-      productId: string,
-      newQuantity: number
-   ) => {
-      if (!productId) {
-         console.error("Product ID is undefined!", productId);
-         return;
-      }
-
+  useEffect(() => {
+    const fetchCartItems = async () => {
       try {
-         const response = await fetch(
-            `http://localhost:5000/api/shoppingRoutes/cart/item/update/${productId}`,
-            {
-               method: "PATCH",
-               headers: {
-                  "Content-Type": "application/json",
-               },
-               body: JSON.stringify({ quantity: newQuantity }),
-            }
-         );
-
-         if (!response.ok) throw new Error("Failed to update quantity");
-
-         setCartItems((prevItems) =>
-            prevItems.map((item) =>
-               item.product_id._id === productId
-                  ? { ...item, quantity: Math.max(1, newQuantity) }
-                  : item
-            )
-         );
+        setLoading(true);
+        const response = await axios.get(
+          "http://localhost:5000/api/shoppingRoutes/cart/item"
+        );
+        const cart = response.data;
+        setCartId(cart._id);
+        setCartItems(
+          cart.items.filter((item: CartItemType) => item.product_id !== null)
+        );
       } catch (error) {
-         console.error("Error updating quantity:", error);
+        setError("Failed to fetch cart items.");
+        console.error("Error fetching cart items:", error);
+      } finally {
+        setLoading(false);
       }
-   };
+    };
+    fetchCartItems();
+  }, []);
 
-   // ✅ Remove Item from Cart
-   const handleDeleteItem = async (productId: string) => {
-      try {
-         await axios.delete(
-            `http://localhost:5000/api/shoppingRoutes/cart/item/delete/${productId}`
-         );
+  const handleQuantityChange = async (
+    productId: string,
+    newQuantity: number
+  ) => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:5000/api/shoppingRoutes/cart/item/update/${productId}`,
+        { quantity: newQuantity }
+      );
 
-         setCartItems((prevItems) =>
-            prevItems.filter((item) => item.product_id._id !== productId)
-         );
-      } catch (error) {
-         console.error("Error deleting item:", error);
-      }
-   };
+      if (response.status !== 200) throw new Error("Failed to update quantity");
 
-   // ✅ Ensure product_id is not null before calculating totals
-   const validCartItems = cartItems.filter((item) => item.product_id !== null);
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.product_id._id === productId
+            ? { ...item, quantity: Math.max(1, newQuantity) }
+            : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+    }
+  };
 
-   const totalMRP = validCartItems.reduce(
-      (acc, item) =>
-         acc + (item.product_id?.price.original || 0) * item.quantity,
-      0
-   );
+  const handleDeleteItem = async (productId: string) => {
+    try {
+      await axios.delete(
+        `http://localhost:5000/api/shoppingRoutes/cart/item/delete/${productId}`
+      );
 
-   const totalDiscount = validCartItems.reduce(
-      (acc, item) =>
-         acc +
-         ((item.product_id?.price.original || 0) -
-            (item.product_id?.price.discounted || 0)) *
-            item.quantity,
-      0
-   );
+      setCartItems((prevItems) =>
+        prevItems.filter((item) => item.product_id._id !== productId)
+      );
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
-   const totalPayable = totalMRP - totalDiscount;
+  const totalMRP = cartItems.reduce(
+    (acc, item) => acc + (item.product_id.price.original || 0) * item.quantity,
+    0
+  );
 
-   return (
-      <div className="flex flex-col px-4 md:px-24 sm:flex-row">
-         <div className="flex-grow">
-            {loading ? (
-               <p>Loading cart...</p>
-            ) : error ? (
-               <p className="text-red-500">{error}</p>
-            ) : cartItems.length === 0 ? (
-               <p>Your cart is empty.</p>
-            ) : (
-               cartItems.map((item) => (
-                  <CartItem
-                     key={item.id}
-                     cartItem={item}
-                     onQuantityChange={handleQuantityChange}
-                     onDelete={handleDeleteItem}
-                  />
-               ))
-            )}
-         </div>
-         <CartTotal
-            totalMRP={totalMRP}
-            totalDiscount={totalDiscount}
-            totalPayable={totalPayable}
-         />
+  const totalDiscount = cartItems.reduce(
+    (acc, item) =>
+      acc +
+      ((item.product_id.price.original || 0) -
+        (item.product_id.price.discounted || 0)) *
+        item.quantity,
+    0
+  );
+
+  const totalPayable = totalMRP - totalDiscount;
+
+  const handleConfirmOrder = () => {
+    navigate(`/orders/create?cartId=${cartId}`);
+  };
+
+  return (
+    <div className="flex flex-col px-4 md:px-24 sm:flex-row">
+      <div className="flex-grow">
+        {loading ? (
+          <p>Loading cart...</p>
+        ) : error ? (
+          <p className="text-red-500">{error}</p>
+        ) : cartItems.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              cartItem={item}
+              onQuantityChange={handleQuantityChange}
+              onDelete={handleDeleteItem}
+            />
+          ))
+        )}
       </div>
-   );
+      <CartTotal
+        cartId={cartId}
+        totalMRP={totalMRP}
+        totalDiscount={totalDiscount}
+        totalPayable={totalPayable}
+      />
+    </div>
+  );
 };
 
 export default Cart;
