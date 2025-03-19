@@ -157,5 +157,5 @@ Athira P G - Developer
 Sreekuttan C S - Developer
 Ansil A - Developer
 Christo Jacob - Developer
-Ninsom Dobias - Developer
+Ninson Dobiyas - Developer
 Adarsh S - Developer
